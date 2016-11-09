@@ -1,32 +1,32 @@
 from mininet.net import Mininet
-from mininet.node import Controller
-from mininet.node import RemoteController
-from mininet.node import Host
 from mininet.cli import CLI
 from mininet.link import Intf
 from mininet.log import setLogLevel, info
 from mininet.topo import Topo
 
 def myNetwork():
-	topo=Topo()        
-	#net = Mininet()
+	#topo=Topo()        
+	net = Mininet()
 	
         info('*** Add hosts ***\n')
-        topo.addHost('h1',ip="10.0.0.1/24")
-        topo.addHost('h2',ip="10.0.0.2/24")
+        h1=net.addHost('h1')
+	h2=net.addHost('h2')
 
         info('*** Add switches ***\n')
-        topo.addSwitch('s1')
         #Intf('eth2',node=s1)
+	s1=net.addSwitch('s1')
+	s2=net.addSwitch('s2')
+	s3=net.addSwitch('s3')
 	
 	info('*** Add links ***\n')
-	topo.addLink('h1','s1')
-	topo.addLink('h2','s1')
+	net.addLink('h1','s1')
+	net.addLink('h2','s3')
+	net.addLink('s1','s2')
+	net.addLink('s2','s3')
 	
-	net = Mininet()
         info('*** Starting network ***\n')
+	net.build()
         net.start()
-	net.pingAll()
         #h1.cmdPrint('ping -c10 '+ h2.IP())
         CLI(net)
         net.stop()
