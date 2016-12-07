@@ -5,11 +5,8 @@ from mininet.log import setLogLevel, info
 from mininet.topo import Topo
 
 def myNetwork():
-<<<<<<< Updated upstream
 	#topo=Topo()        
-=======
 	topo=Topo()        
->>>>>>> Stashed changes
 	net = Mininet()
 	
         info('*** Add hosts ***\n')
