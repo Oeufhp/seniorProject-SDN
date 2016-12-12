@@ -9,7 +9,7 @@ from mininet.log import setLogLevel, info
 def myNetwork():
 	"Create netwirk without topology."       
 	
-    info('*** Creating Nodes ***\n')
+    info("*** Creating Nodes ***\n")
 	s1 = OVSSwitch('s1',inNamespace=False)
 	h1 = Host('h1')
 	h2 = Host('h2')
@@ -19,7 +19,7 @@ def myNetwork():
 	Link(h1,s1)
 	Link(h2,s1)
 
-	info('*** Adding physical Intf to switch ***\n')
+	info("*** Adding physical Intf to switch ***\n")
 	Intf('eth1', node=s1)
 	Intf('eth2', node=s1)
 	Intf('eth3', node=s1)
@@ -31,7 +31,7 @@ def myNetwork():
     info( str( h2 ) + '\n' )
 
 
-	info('*** Starting network using OVS ***\n')
+	info("*** Starting network using OVS ***\n")
 	s1.cmd('ovs-vsctl del-br br0')
 	s1.cmd('ovs-vsctl add-br br0')
     s1.cmd('ovs-vsctl add-port br0 eth1')
@@ -43,7 +43,7 @@ def myNetwork():
 	s1.cmd('ifconfig br0 down')
 	s1.cmd('ifconfig br0 up')
 
-	info('*** Adding default flows ***\n')
+	info("*** Adding default flows ***\n")
 	s1.cmd('ovs-ofctl add-flow s1 priority=500,dl_type=0x800,nw_src=192.168.20.0/24,nw_dst=192.168.20.0/24,actions=normal')
 
 
