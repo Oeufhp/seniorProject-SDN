@@ -1,10 +1,26 @@
 #!/usr/bin/env python
 
+import re
+import sys
+from minient.cli import CLI
 from mininet.net import Mininet
 from mininet.node import Node,Host,OVSSwitch,RemoteController
 from mininet.link import Intf,Link
 from mininet.topo import Topo
-from mininet.log import setLogLevel, info
+from mininet.log import setLogLevel, info, error
+from mininet.util import quietRun
+
+def checkIntf(intf):
+	"Make sure intf exists and is not configured."
+    config = quietRun( 'ifconfig %s 2>/dev/null' % intf, shell=True )
+    if not config:
+        error( 'Error:', intf, 'does not exist!\n' )
+        exit( 1 )
+    ips = re.findall( r'\d+\.\d+\.\d+\.\d+', config )
+    if ips:
+        error( 'Error:', intf, 'has an IP address,'
+               'and is probably in use!\n' )
+        exit( 1 )
 
 def myNetwork():     
 
@@ -19,10 +35,16 @@ def myNetwork():
 	net.addLink(h1,s1)
 	net.addLink(h2,s1)
 
-	info("*** Adding physical Intf to switch ***\n")
-	# Intf('eth1', node=s1)
-	# Intf('eth2', node=s1)
-	# Intf('eth3', node=s1)
+	# try to get hw intf from the command line; by default, use eth1
+    intfName = sys.argv[ 1 ] if len( sys.argv ) > 1 else 'eth1'
+    info( '*** Connecting to hw intf: %s' % intfName )
+
+	info( '*** Checking', intfName, '\n' )
+    checkIntf( intfName )
+
+	info("*** Adding physical interface to switch ***\n")
+	info('*** Adding physical interface',intfName,'to switch',s1.name,'\n')
+	_intf(intfName,node=s1)
 
 	info("*** Configuring hosts ***\n")
 	h1.setIP('192.168.20.210/24')
