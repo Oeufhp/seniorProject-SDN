@@ -43,16 +43,14 @@ for i in $(seq 0 $2); do
  
 done
 for i in $(seq 0 $2); do
-    sudo ifconfig eth$i down
-    if sudo ifconfig eth$i down ; then
-      #sudo ifconfig eth$i down
+    #if sudo ifconfig eth$i down ; then
+      sudo ifconfig eth$i down
       echo "ifconfig eth$i down"
-    fi
-    sudo ifconfig eth$i up
-    if sudo ifconfig eth$i up ; then
-      #sudo ifconfig eth$i up
+    #fi
+    #if sudo ifconfig eth$i up ; then
+      sudo ifconfig eth$i up
       echo "ifconfig eth$i up"
-    fi
+    #fi
 done  
   echo ""
   echo "Your informatons was saved in '$1' file."
