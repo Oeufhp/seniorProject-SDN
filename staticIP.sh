@@ -43,14 +43,14 @@ for i in $(seq 0 $2); do
  
 done
 for i in $(seq 0 $2); do
-    if sudo ifconfig eth$i down ; then
-      #sudo ifconfig eth$i down
+    #if sudo ifconfig eth$i down ; then
+      sudo ifconfig eth$i down
       echo "ifconfig eth$i down"
-    fi
-    if sudo ifconfig eth$i up ; then
-      #sudo ifconfig eth$i up
+    #fi
+    #if sudo ifconfig eth$i up ; then
+      sudo ifconfig eth$i up
       echo "ifconfig eth$i up"
-    fi
+    #fi
 done  
   echo ""
   echo "Your informatons was saved in '$1' file."
@@ -58,7 +58,7 @@ done
   exit 0
 }
 
-file="/home/sdn-94/Documents/test"
+file="/etc/network/interfaces"
 if [ ! -f $file ]; then
   echo ""
   echo "The file '$file' doesn't exist!"
