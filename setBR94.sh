@@ -23,8 +23,8 @@ sudo ovs-vsctl --may-exist add-port br94 eth3
 #sudo ovs-vsctl set-controller br0 tcp:192.168.20.200:6633
 
 #add rules to switch
-sudo ovs-ofctl add-flow "br94" in_port=2,actions:output=3
 sudo ovs-ofctl add-flow "br94" in_port=3,actions:output=2
+sudo ovs-ofctl add-flow "br94" in_port=2,actions:output=3
 #sudo ovs-ofctl add-flow br0 priority=50000,dl_type=0x800,nw_src=192.168.30.0/24,nw_dst=192.168.40.0/24,actions=normal
 #sudo ovs-ofctl add-flow br0 
 
