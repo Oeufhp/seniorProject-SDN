@@ -15,12 +15,16 @@ sudo ovs-vsctl --may-exist add-port br95 eth3
 
 #config ip of interface to bridge 
 #ip=""
-#sudo ifconfig eth1 0.0.0.0
+sudo ifconfig eth1 0.0.0.0
 #ip=$(ip addr show dev eth0 | grep "inet " | awk '{ print $2 }')
-#sudo ifconfig br0 $ip 255.255.255.0
+sudo ifconfig br95 192.168.40.205 255.255.255.0
+sudo ifconfig eth1 down
+sudo ifconfig eth1 up
+sudo ifconfig br95 down
+sudo ifconfig br95 up
 
 #set controller to ovs
-#sudo ovs-vsctl set-controller br0 tcp:192.168.20.200:6633
+sudo ovs-vsctl set-controller br95 tcp:192.168.40.200:6653
 
 #add rules to switch
 #sudo ovs-ofctl add-flow "br95" in_port=1,actions:output=2
@@ -32,6 +36,6 @@ sudo ovs-vsctl --may-exist add-port br95 eth3
 sudo ovs-vsctl show
 
 #check flows that has recently added
-sudo ovs-ofctl dump-flows br95
+#sudo ovs-ofctl dump-flows br95
 
 
