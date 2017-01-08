@@ -3,11 +3,11 @@ var http=require('http');
 
 //------------ data for add flow ------------
 var postData1=querystring.stringtify({
-    'installInHw':'true',
-    'name':'s1-flow1',
-    'node':{'id':'11:11:11:11:11:11:11:01','type':'OF'},
-	'ingressPort':'1',
-	'actions':['OUTPUT=2']
+    installInHw:'true',
+    name:'s1-flow1',
+    node:{'id':'11:11:11:11:11:11:11:01','type':'OF'},
+	  ingressPort:'1',
+	  actions:['OUTPUT=2']
 
 });
 
@@ -15,8 +15,8 @@ var postData2=querystring.stringtify({
     'installInHw':'true',
     'name':'s1-flow2',
     'node':{'id':'11:11:11:11:11:11:11:01','type':'OF'},
-	'ingressPort':'2',
-	'actions':['OUTPUT=1']
+	  'ingressPort':'2',
+	  'actions':['OUTPUT=1']
 
 });
 //------------ data for add flow ------------
