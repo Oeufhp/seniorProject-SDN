@@ -2,6 +2,27 @@ var querystring=require('querystring');
 var http=require('http');
 var request=require('request');
 
+
+var username="admin";
+var password="admin";
+var url="http://localhost:8181"
+var auth="Basic "+ new Buffer(username +":"+password).toString("base64");
+
+request(
+  {
+    url:url,
+    headers:{"Authorization":auth}
+  },
+  function(err,res,body){
+    if(res){
+    console.log(res.statusCode);
+  }
+   else if(err){
+    console.error(err); 
+   }
+   console.log(body)
+  }
+);
 //------------ data for add flow ------------
 // var postData1=querystring.stringtify({
 //     installInHw:'true',
