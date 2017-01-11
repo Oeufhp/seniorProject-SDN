@@ -3,7 +3,7 @@
 echo "---------- Adding OVS bridge ------"
 #create bridge s1
 sudo ovs-vsctl --if-exists del-br s1
-sudo ovs-vsctl --may-exists add-br s1
+sudo ovs-vsctl --may-exist add-br s1
 
 #map bridge s1 to physical port
 sudo ovs-vsctl add-port s1 eth3
@@ -22,7 +22,7 @@ sudo ovs-vsctl set Interface s1_s2 options:peer=s2_s1
 
 #create bridge s2
 sudo ovs-vsctl --if-exists del-br s2
-sudo ovs-vsctl --may-exists add-br s2
+sudo ovs-vsctl --may-exist add-br s2
 
 sudo ifconfig s2 down
 sudo ifconfig s2 up
@@ -42,7 +42,7 @@ sudo ovs-vsctl set Interface s2_s3 options:peer=s3_s2
 
 #create bridge s3
 sudo ovs-vsctl --if-exists del-br s3
-sudo ovs-vsctl --may-exists add-br s3
+sudo ovs-vsctl --may-exist add-br s3
 
 #map bridge s3 to physical port
 sudo ovs-vsctl add-port s3 eth4
