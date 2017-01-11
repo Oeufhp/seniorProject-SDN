@@ -1,0 +1,10 @@
+step by step implementation
+
+1) start karaf shell of opendaylight
+2) start mininet with single topology(1 switch and 2 hosts) and remote controller to eth0 of computer
+3) test ping -> fail
+4) dump flow if there are some flows -> delete them
+5) add flow to switch using postman
+6) ping should work -> dump flow should see flows
+
+

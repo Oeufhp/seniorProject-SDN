@@ -1,3 +1,41 @@
 curl -u admin:admin -X PUT  'localhost:8181/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:01/property/description/s1'
 curl -u admin:admin -H 'Content-type: application/json' -X PUT -d '{"installInHw":"true", "name":"flow1", "node": {"id":"00:00:00:00:00:00:00:01", "type":"OF"}, "ingressPort":"1","actions":["OUTPUT=2"]}' 'http://localhost:8181/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow1'
 curl -u admin:admin -H 'Content-type: application/json' -X PUT -d '{"installInHw":"true", "name":"flow2", "node": {"id":"00:00:00:00:00:00:00:01", "type":"OF"}, "ingressPort":"2","actions":["OUTPUT=1"]}' 'http://localhost:8181/controller/nb/v2/flowprogrammer/default/node/OF/00:00:00:00:00:00:00:01/staticFlow/flow2'
+
+url for add flow: http://<controller-ip>:8181/restconf/config/opendaylight-inventory:nodes/node/<node-id>/table/<table-id>/flow/<flow-id>
+method: PUT
+Content-type application/xml
+accept application/xml
+
+body:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flow xmlns="urn:opendaylight:flow:inventory">
+	<priority>10</priority>
+	<id>2</id>
+	<table_id>1</table_id>
+	<installHw>true</installHw>
+	<flow-name>2to1</flow-name>
+	<match>
+		<in-port>2</in-port>
+	</match>
+	<instructions>
+		<instruction>
+			<order>0</order>
+			<apply-actions>
+				<action>
+					<order>0</order>
+					<output-action>
+						<output-node-connector>1</output-node-connector>
+						<max-length>60</max-length>
+					</output-action>
+				</action>
+			</apply-actions>
+		</instruction>
+	</instructions>
+</flow>
+
+view flow url: http://<controller-ip>:8181/restconf/operational/opendaylight-inventory:nodes/node/<node-id>/table/<table-id>
+method: GET
+
+delete flow url: http://<controller-ip>:8181/restconf/config/opendaylight-inventory:nodes/node/<node-id>/table/<table-id>/flow/<flow-id>
+
