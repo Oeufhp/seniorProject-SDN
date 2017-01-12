@@ -39,3 +39,35 @@ method: GET
 
 delete flow url: http://<controller-ip>:8181/restconf/config/opendaylight-inventory:nodes/node/<node-id>/table/<table-id>/flow/<flow-id>
 
+
+-----------------------------------------------------from ODL doc---------------------------------------------------------------
+RESTCONF Uris to access statistics of various node elements
+• Aggregate Flow Statistics & Flow Table Statistics
+GET  http://<controller-ip>:8080/restconf/operational/opendaylight-
+inventory:nodes/node/{node-id}/table/{table-id}
+
+• Individual Flow Statistics from specific table
+GET  http://<controller-ip>:8080/restconf/operational/opendaylight-
+inventory:nodes/node/{node-id}/table/{table-id}/flow/{flow-id}
+
+• Group Features & Meter Features Statistics
+GET  http://<controller-ip>:8080/restconf/operational/opendaylight-
+inventory:nodes/node/{node-id}
+
+• Group Description & Group Statistics
+GET  http://<controller-ip>:8080/restconf/operational/opendaylight-
+inventory:nodes/node/{node-id}/group/{group-id}
+
+• Meter Configuration & Meter Statistics
+GET  http://<controller-ip>:8080/restconf/operational/opendaylight-
+inventory:nodes/node/{node-id}/meter/{meter-id}
+
+• Node Connector Statistics
+ GET  http://<controller-ip>:8080/restconf/operational/opendaylight-
+inventory:nodes/node/{node-id}/node-connector/{node-connector-id}
+ 
+• Queue Statistics
+GET  http://<controller-ip>:8080/restconf/operational/opendaylight-
+inventory:nodes/node/{node-id}/node-connector/{node-connector-id}/queue/
+{queue-id} 
+
