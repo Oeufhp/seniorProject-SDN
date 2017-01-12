@@ -1,0 +1,19 @@
+
+Download from OpenDaylight Package from this link
+https://wiki.opendaylight.org/view/OpenDaylight_Controller:Installati
+on
+From terminal:
+Now, install a JDK.
+# sudo apt-get install openjdk-7-jdk
+# sudo apt-get install vim
+# gedit .bashrc 
+
+Add following two lines
+export MAVEN_OPTS="-Xmx4096m -XX:MaxPermSize=1024m"
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+
+cd opendaylight
+#cd opendaylight
+# ./run.sh
+#
+
