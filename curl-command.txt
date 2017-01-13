@@ -63,3 +63,6 @@ GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nod
 • Queue Statistics
 GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nodes/node/{node-id}/node-connector/{node-connector-id}/queue/{queue-id} 
 
+
+view topology:
+GET http://localhost:8181/restconf/operational/network-topology:network-topology/
