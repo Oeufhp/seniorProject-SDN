@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<!-- saved from url=(0107)http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>SwitchNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="./SwitchNorthbound_files/style.css">
+  <link rel="stylesheet" href="./SwitchNorthbound_files/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="./SwitchNorthbound_files/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home"><div><style type="text/css" class="_af_1484558689285_hss_noParse">@keyframes locationAppear{from{transform:scale(0, 0);opacity:1;}to{transform:scale(1, 1);opacity:1;}}</style><style type="text/css">@font-face{font-family:'Gotha Pro';src:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/fonts/GothaProReg.otf')}#_af_1484558689285_hss_status_icon_container{font-family:'Gotha Pro';line-height:1em !important;position:fixed !important;z-index:999999999999999 !important;width:56px !important;height:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon{width:56px !important;height:56px !important;background-size:auto 56px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:30px !important;cursor:pointer !important;position:absolute !important;bottom:0 !important;left:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container._af_1484558689285_hss_disconnected{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector{position:absolute !important;display:none !important;left:0 !important;top:-195px !important;height:195px !important;width:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location{width:35px !important;height:35px !important;background-size:auto 35px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:35px !important;cursor:pointer !important;position:absolute !important;opacity:0 !important;left:10px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location ._af_1484558689285_hss_status_icon_sign{top:6px !important;right:43px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(1){top:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(2){top:50px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(3){top:100px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(4){top:150px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:hover ._af_1484558689285_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container ._af_1484558689285_hss_status_icon_sign{font-family:'Gotha Pro';position:absolute !important;display:none !important;right:65px !important;top:15px !important;background:rgba(70,70,70,0.9) !important;border-radius:2px !important;box-shadow:0 1px 2px rgba(0,0,0,0.15) !important;color:#ececec !important;font-weight:bold !important;line-height:1em !important;overflow:hidden !important;padding:6px 8px !important;text-overflow:ellipsis !important;vertical-align:middle !important;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif !important;font-size:12px !important;white-space:nowrap !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/icon-128.png') !important;background-size:auto 75px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon:hover ._af_1484558689285_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon_selector{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location{animation-name:locationAppear !important;animation-duration:.3s !important;animation-fill-mode:forwards !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(1){animation-delay:.3s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(2){animation-delay:.2s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(3){animation-delay:.1s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:nth-of-type(4){animation-delay:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container:hover #_af_1484558689285_hss_status_icon_selector ._af_1484558689285_hss_location:hover ._af_1484558689285_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container._af_1484558689285_hss_connecting #_af_1484558689285_hss_status_icon_selector{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container._af_1484558689285_hss_connecting #_af_1484558689285_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/loader.gif') !important;background-size:auto 56px !important;animation-duration:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558689285_hss_status_icon_container._af_1484558689285_hss_connecting #_af_1484558689285_hss_status_icon:hover ._af_1484558689285_hss_status_icon_sign{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}._af_1484558689285_hss_ca{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ca.svg')}._af_1484558689285_hss_ch{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ch.svg')}._af_1484558689285_hss_dk{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/dk.svg')}._af_1484558689285_hss_es{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/es.svg')}._af_1484558689285_hss_fr{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/fr.svg')}._af_1484558689285_hss_jp{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/jp.svg')}._af_1484558689285_hss_nl{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/nl.svg')}._af_1484558689285_hss_ru{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ru.svg')}._af_1484558689285_hss_se{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/se.svg')}._af_1484558689285_hss_sg{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/sg.svg')}._af_1484558689285_hss_gb{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/gb.svg')}._af_1484558689285_hss_us{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/us.svg')}._af_1484558689285_hss_de{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/de.svg')}</style><div id="_af_1484558689285_hss_status_icon_container" class="_af_1484558689285_hss_disconnected" draggable="true" style="right: 15px !important; bottom: 15px !important;"><div id="_af_1484558689285_hss_status_icon" class="_af_1484558689285_hss_nl"><div class="_af_1484558689285_hss_status_icon_sign">Best choice for browsing</div></div><div id="_af_1484558689285_hss_status_icon_selector"><div class="_af_1484558689285_hss_location _af_1484558689285_hss_de"><div class="_af_1484558689285_hss_status_icon_sign">Browse from Germany</div></div><div class="_af_1484558689285_hss_location _af_1484558689285_hss_cz"><div class="_af_1484558689285_hss_status_icon_sign">Browse from Czech Republic</div></div><div class="_af_1484558689285_hss_location _af_1484558689285_hss_fr"><div class="_af_1484558689285_hss_status_icon_sign">Browse from France</div></div><div class="_af_1484558689285_hss_location _af_1484558689285_hss_dk"><div class="_af_1484558689285_hss_status_icon_sign">Browse from Denmark</div></div></div></div></div>
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/index.html">SwitchNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/rest.html">REST</a></li>
+            <li id="nav-data"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/model.html">Data Model</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/downloads.html">Files and Libraries</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html">SwitchNorthbound</a>
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html">SwitchNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>SwitchNorthbound</h1>
+
+      <p>The class provides Northbound REST APIs to access the nodes, node connectors
+and their properties.</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html#path__-containerName-_nodes.html">/{containerName}/nodes</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html#path__-containerName-_save.html">/{containerName}/save</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html#path__-containerName-_node_-nodeType-_-nodeId-.html">/{containerName}/node/{nodeType}/{nodeId}</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html#path__-containerName-_node_-nodeType-_-nodeId-_property_-propertyName-.html">/{containerName}/node/{nodeType}/{nodeId}/property/{propertyName}</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html#path__-containerName-_node_-nodeType-_-nodeId-_property_-propertyName-_-propertyValue-.html">/{containerName}/node/{nodeType}/{nodeId}/property/{propertyName}/{propertyValue}</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html#path__-containerName-_nodeconnector_-nodeType-_-nodeId-_-nodeConnectorType-_-nodeConnectorId-_property_-propertyName-.html">/{containerName}/nodeconnector/{nodeType}/{nodeId}/{nodeConnectorType}/{nodeConnectorId}/property/{propertyName}</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/resource_SwitchNorthbound.html#path__-containerName-_nodeconnector_-nodeType-_-nodeId-_-nodeConnectorType-_-nodeConnectorId-_property_-propertyName-_-propertyValue-.html">/{containerName}/nodeconnector/{nodeType}/{nodeId}/{nodeConnectorType}/{nodeConnectorId}/property/{propertyName}/{propertyValue}</a></li>
+      </ul>
+      <a name="path__-containerName-_nodes.html"></a>
+      <h1>/{containerName}/nodes</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/controller/nb/v2/switchmanager/%7BcontainerName%7D/nodes">/controller/nb/v2/switchmanager/{containerName}/nodes</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Retrieve a list of all the nodes and their properties in the network
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>A list of Pair each pair represents a
+org.opendaylight.controller.sal.core.Node and Set of
+org.opendaylight.controller.sal.core.Property attached to
+it.
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/switchmanager/default/nodes
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+   &lt;nodeProperties&gt;
+      &lt;node&gt;
+         &lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+         &lt;type&gt;OF&lt;/type&gt;
+      &lt;/node&gt;
+      &lt;properties&gt;
+         &lt;tables&gt;
+            &lt;value&gt;-1&lt;/value&gt;
+         &lt;/tables&gt;
+         &lt;description&gt;
+            &lt;value&gt;Switch2&lt;/value&gt;
+         &lt;/description&gt;
+         &lt;actions&gt;
+            &lt;value&gt;4095&lt;/value&gt;
+         &lt;/actions&gt;
+         &lt;macAddress&gt;
+            &lt;value&gt;00:00:00:00:00:02&lt;/value&gt;
+         &lt;/macAddress&gt;
+         &lt;capabilities&gt;
+            &lt;value&gt;199&lt;/value&gt;
+         &lt;/capabilities&gt;
+         &lt;timeStamp&gt;
+            &lt;value&gt;1377291227877&lt;/value&gt;
+            &lt;name&gt;connectedSince&lt;/name&gt;
+         &lt;/timeStamp&gt;
+         &lt;buffers&gt;
+            &lt;value&gt;256&lt;/value&gt;
+         &lt;/buffers&gt;
+      &lt;/properties&gt;
+   &lt;/nodeProperties&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"nodeProperties":[
+{
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"properties":{
+"tables":{
+"value":"-1"
+},
+"description":{
+"value":"None"
+},
+"actions":{
+"value":"4095"
+},
+"macAddress":{
+"value":"00:00:00:00:00:02"
+},
+"capabilities":{
+"value":"199"
+},
+"timeStamp":{
+"value":"1377291227877",
+"name":"connectedSince"
+},
+"buffers":{
+"value":"256"
+}
+}
+}
+]
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_save.html"></a>
+      <h1>/{containerName}/save</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/controller/nb/v2/switchmanager/%7BcontainerName%7D/save">/controller/nb/v2/switchmanager/{containerName}/save</a></p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Save the current switch configurations
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/switchmanager/default/save
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to save switch configuration. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_node_-nodeType-_-nodeId-.html"></a>
+      <h1>/{containerName}/node/{nodeType}/{nodeId}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/controller/nb/v2/switchmanager/%7BcontainerName%7D/node/%7BnodeType%7D/%7BnodeId%7D">/controller/nb/v2/switchmanager/{containerName}/node/{nodeType}/{nodeId}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Retrieve a list of all the nodeconnectors and their properties in a given
+node
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            The container for which we want to retrieve the list (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier as specified by org.opendaylight.controller.sal.core.Node (Eg. '00:00:00:00:00:00:00:03')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/wsdocs/el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>A List of Pair each pair represents a
+org.opendaylight.controller.sal.core.NodeConnector and
+its corresponding
+org.opendaylight.controller.sal.core.Property attached to
+it.
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:01
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+   &lt;nodeConnectorProperties&gt;
+      &lt;nodeconnector&gt;
+         &lt;node&gt;
+            &lt;id&gt;00:00:00:00:00:00:00:01&lt;/id&gt;
+            &lt;type&gt;OF&lt;/type&gt;
+         &lt;/node&gt;
+         &lt;id&gt;2&lt;/id&gt;
+         &lt;type&gt;OF&lt;/type&gt;
+      &lt;/nodeconnector&gt;
+      &lt;properties&gt;
+         &lt;state&gt;
+            &lt;value&gt;1&lt;/value&gt;
+         &lt;/state&gt;
+         &lt;config&gt;
+            &lt;value&gt;1&lt;/value&gt;
+         &lt;/config&gt;
+         &lt;name&gt;
+            &lt;value&gt;L1_2-C2_1&lt;/value&gt;
+         &lt;/name&gt;
+      &lt;/properties&gt;
+   &lt;/nodeConnectorProperties&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"nodeConnectorProperties":[
+{
+"nodeconnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:01",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+},
+"properties":{
+"state":{
+"value":"1"
+},
+"config":{
+"value":"1"
+},
+"name":{
+"value":"L1_2-C2_1"
+}
+}
+}
+]
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_node_-nodeType-_-nodeId-_property_-propertyName-.html"></a>
+      <h1>/{containerName}/node/{nodeType}/{nodeId}/property/{propertyName}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/controller/nb/v2/switchmanager/%7BcontainerName%7D/node/%7BnodeType%7D/%7BnodeId%7D/property/%7BpropertyName%7D">/controller/nb/v2/switchmanager/{containerName}/node/{nodeType}/{nodeId}/property/{propertyName}</a></p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a property of a node
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'SliceRed')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier as specified by org.opendaylight.controller.sal.core.Node (Eg. '00:00:00:00:00:03:01:02')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyName</td>
+          <td>
+            Name of the Property. Properties that can be deleted are description, forwarding(only in default container) and tier.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:03/property/forwarding
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            Property removed successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            The nodeId or configuration is invalid
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or nodeId or configuration name is not found
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Unable to delete property due to cluster conflict
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_node_-nodeType-_-nodeId-_property_-propertyName-_-propertyValue-.html"></a>
+      <h1>/{containerName}/node/{nodeType}/{nodeId}/property/{propertyName}/{propertyValue}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/controller/nb/v2/switchmanager/%7BcontainerName%7D/node/%7BnodeType%7D/%7BnodeId%7D/property/%7BpropertyName%7D/%7BpropertyValue%7D">/controller/nb/v2/switchmanager/{containerName}/node/{nodeType}/{nodeId}/property/{propertyName}/{propertyValue}</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add a Description, Tier and Forwarding mode property to a node. This
+method returns a non-successful response if a node by that name already
+exists.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier as specified by org.opendaylight.controller.sal.core.Node (Eg. '00:00:00:00:00:00:00:03')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyName</td>
+          <td>
+            Name of the Property. Properties that can be configured are: description, forwarding(only for default container) and tier
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyValue</td>
+          <td>
+            Value of the Property. Description can be any string (Eg. 'Node1'), valid values for tier are non negative numbers, and valid values for forwarding are 0 for reactive and 1 for proactive forwarding.
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:03/property/description/Switch3
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            The nodeId or configuration is invalid
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or node or configuration name is not found
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            The property cannot be configured in non-default container
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Unable to update configuration due to cluster conflict or conflicting description property
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_nodeconnector_-nodeType-_-nodeId-_-nodeConnectorType-_-nodeConnectorId-_property_-propertyName-.html"></a>
+      <h1>/{containerName}/nodeconnector/{nodeType}/{nodeId}/{nodeConnectorType}/{nodeConnectorId}/property/{propertyName}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/controller/nb/v2/switchmanager/%7BcontainerName%7D/nodeconnector/%7BnodeType%7D/%7BnodeId%7D/%7BnodeConnectorType%7D/%7BnodeConnectorId%7D/property/%7BpropertyName%7D">/controller/nb/v2/switchmanager/{containerName}/nodeconnector/{nodeType}/{nodeId}/{nodeConnectorType}/{nodeConnectorId}/property/{propertyName}</a></p>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a property of a node connector
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier as specified by org.opendaylight.controller.sal.core.Node (Eg. '00:00:00:00:00:00:00:01')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeConnectorType</td>
+          <td>
+            Type of the node connector being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeConnectorId</td>
+          <td>
+            NodeConnector Identifier as specified by org.opendaylight.controller.sal.core.NodeConnector (Eg. '1'). If nodeConnecterId contains forward slash(/), replace forward slash with underscore(_) in the URL. (Eg. for Ethernet1/2, use Ethernet1_2)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyName</td>
+          <td>
+            Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes. Property that can be deleted is bandwidth
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/switchmanager/default/nodeconnector/OF/00:00:00:00:00:00:00:01/OF/2/property/bandwidth
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            Property removed successfully
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or nodeId or configuration name is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_nodeconnector_-nodeType-_-nodeId-_-nodeConnectorType-_-nodeConnectorId-_property_-propertyName-_-propertyValue-.html"></a>
+      <h1>/{containerName}/nodeconnector/{nodeType}/{nodeId}/{nodeConnectorType}/{nodeConnectorId}/property/{propertyName}/{propertyValue}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/switchmanager/site/controller/nb/v2/switchmanager/%7BcontainerName%7D/nodeconnector/%7BnodeType%7D/%7BnodeId%7D/%7BnodeConnectorType%7D/%7BnodeConnectorId%7D/property/%7BpropertyName%7D/%7BpropertyValue%7D">/controller/nb/v2/switchmanager/{containerName}/nodeconnector/{nodeType}/{nodeId}/{nodeConnectorType}/{nodeConnectorId}/property/{propertyName}/{propertyValue}</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add node-connector property to a node connector. This method returns a
+non-successful response if a node connector by the given name already
+exists.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeType</td>
+          <td>
+            Type of the node being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeId</td>
+          <td>
+            Node Identifier as specified by org.opendaylight.controller.sal.core.Node (Eg. '00:00:00:00:00:00:00:03')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeConnectorType</td>
+          <td>
+            Type of the node connector being programmed (Eg. 'OF')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>nodeConnectorId</td>
+          <td>
+            NodeConnector Identifier as specified by org.opendaylight.controller.sal.core.NodeConnector. (Eg. '2'). If nodeConnecterId contains forward slash(/), replace forward slash with underscore(_) in the URL. (Eg. for Ethernet1/2, use Ethernet1_2)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyName</td>
+          <td>
+            Name of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes Property that can be configured is bandwidth
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>propertyValue</td>
+          <td>
+            Value of the Property specified by org.opendaylight.controller.sal.core.Property and its extended classes
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/switchmanager/default/nodeconnector/OF/00:00:00:00:00:00:00:01/OF/2/property/bandwidth/1
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or nodeId or configuration name is not found
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Unable to add property due to cluster conflict
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+
+      <div class="clear">
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org/">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="./SwitchNorthbound_files/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="./SwitchNorthbound_files/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="./SwitchNorthbound_files/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+
+
+</div></body></html>

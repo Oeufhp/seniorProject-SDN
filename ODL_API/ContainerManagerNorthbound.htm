@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<!-- saved from url=(0120)http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>ContainerManagerNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="./ContainerManagerNorthbound_files/style.css">
+  <link rel="stylesheet" href="./ContainerManagerNorthbound_files/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="./ContainerManagerNorthbound_files/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home"><div><style type="text/css" class="_af_1484558433926_hss_noParse">@keyframes locationAppear{from{transform:scale(0, 0);opacity:1;}to{transform:scale(1, 1);opacity:1;}}</style><style type="text/css">@font-face{font-family:'Gotha Pro';src:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/fonts/GothaProReg.otf')}#_af_1484558433926_hss_status_icon_container{font-family:'Gotha Pro';line-height:1em !important;position:fixed !important;z-index:999999999999999 !important;width:56px !important;height:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon{width:56px !important;height:56px !important;background-size:auto 56px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:30px !important;cursor:pointer !important;position:absolute !important;bottom:0 !important;left:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container._af_1484558433926_hss_disconnected{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector{position:absolute !important;display:none !important;left:0 !important;top:-195px !important;height:195px !important;width:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location{width:35px !important;height:35px !important;background-size:auto 35px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:35px !important;cursor:pointer !important;position:absolute !important;opacity:0 !important;left:10px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location ._af_1484558433926_hss_status_icon_sign{top:6px !important;right:43px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(1){top:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(2){top:50px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(3){top:100px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(4){top:150px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:hover ._af_1484558433926_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container ._af_1484558433926_hss_status_icon_sign{font-family:'Gotha Pro';position:absolute !important;display:none !important;right:65px !important;top:15px !important;background:rgba(70,70,70,0.9) !important;border-radius:2px !important;box-shadow:0 1px 2px rgba(0,0,0,0.15) !important;color:#ececec !important;font-weight:bold !important;line-height:1em !important;overflow:hidden !important;padding:6px 8px !important;text-overflow:ellipsis !important;vertical-align:middle !important;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif !important;font-size:12px !important;white-space:nowrap !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/icon-128.png') !important;background-size:auto 75px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon:hover ._af_1484558433926_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon_selector{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location{animation-name:locationAppear !important;animation-duration:.3s !important;animation-fill-mode:forwards !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(1){animation-delay:.3s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(2){animation-delay:.2s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(3){animation-delay:.1s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:nth-of-type(4){animation-delay:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container:hover #_af_1484558433926_hss_status_icon_selector ._af_1484558433926_hss_location:hover ._af_1484558433926_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container._af_1484558433926_hss_connecting #_af_1484558433926_hss_status_icon_selector{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container._af_1484558433926_hss_connecting #_af_1484558433926_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/loader.gif') !important;background-size:auto 56px !important;animation-duration:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558433926_hss_status_icon_container._af_1484558433926_hss_connecting #_af_1484558433926_hss_status_icon:hover ._af_1484558433926_hss_status_icon_sign{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}._af_1484558433926_hss_ca{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ca.svg')}._af_1484558433926_hss_ch{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ch.svg')}._af_1484558433926_hss_dk{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/dk.svg')}._af_1484558433926_hss_es{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/es.svg')}._af_1484558433926_hss_fr{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/fr.svg')}._af_1484558433926_hss_jp{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/jp.svg')}._af_1484558433926_hss_nl{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/nl.svg')}._af_1484558433926_hss_ru{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ru.svg')}._af_1484558433926_hss_se{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/se.svg')}._af_1484558433926_hss_sg{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/sg.svg')}._af_1484558433926_hss_gb{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/gb.svg')}._af_1484558433926_hss_us{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/us.svg')}._af_1484558433926_hss_de{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/de.svg')}</style><div id="_af_1484558433926_hss_status_icon_container" class="_af_1484558433926_hss_disconnected" draggable="true" style="right: 15px !important; bottom: 15px !important;"><div id="_af_1484558433926_hss_status_icon" class="_af_1484558433926_hss_nl"><div class="_af_1484558433926_hss_status_icon_sign">Best choice for browsing</div></div><div id="_af_1484558433926_hss_status_icon_selector"><div class="_af_1484558433926_hss_location _af_1484558433926_hss_sg"><div class="_af_1484558433926_hss_status_icon_sign">Browse from Singapore</div></div><div class="_af_1484558433926_hss_location _af_1484558433926_hss_tr"><div class="_af_1484558433926_hss_status_icon_sign">Browse from Turkey</div></div><div class="_af_1484558433926_hss_location _af_1484558433926_hss_cz"><div class="_af_1484558433926_hss_status_icon_sign">Browse from Czech Republic</div></div><div class="_af_1484558433926_hss_location _af_1484558433926_hss_fr"><div class="_af_1484558433926_hss_status_icon_sign">Browse from France</div></div></div></div></div>
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/index.html">ContainerManagerNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/rest.html">REST</a></li>
+            <li id="nav-data"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/model.html">Data Model</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/downloads.html">Files and Libraries</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html">ContainerManagerNorthbound</a>
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html">ContainerManagerNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>ContainerManagerNorthbound</h1>
+
+      <p>Container Manager Northbound API
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default. Administrator can enable it in
+tomcat-server.xml after adding a proper keystore / SSL certificate from a
+trusted authority.<br>
+More info :
+http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#path__containers.html">/containers</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#path__container_-container-.html">/container/{container}</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#path__container_-container-_flowspecs.html">/container/{container}/flowspecs</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#path__container_-container-_nodeconnector.html">/container/{container}/nodeconnector</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#path__container_-container-_flowspec_-flowspec-.html">/container/{container}/flowspec/{flowspec}</a></li>
+      </ul>
+      <a name="path__containers.html"></a>
+      <h1>/containers</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/controller/nb/v2/containermanager/containers">/controller/nb/v2/containermanager/containers</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get all the containers configured in the system
+          </p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_containerConfig-list.html">containerConfig-list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>a List of all org.opendaylight.controller.containermanager.ContainerConfig
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/containers
+
+Response body in XML:
+&lt;containerConfig-list&gt;
+   &lt;containerConfig&gt;
+      &lt;container&gt;black&lt;/container&gt;
+      &lt;staticVlan&gt;10&lt;/staticVlan&gt;
+      &lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+      &lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+      &lt;flowSpecs&gt;
+       &lt;name&gt;tcp&lt;/name&gt;
+       &lt;protocol&gt;TCP&lt;/protocol&gt;
+      &lt;/flowSpecs&gt;
+    &lt;/containerConfig&gt;
+    &lt;containerConfig&gt;
+      &lt;container&gt;red&lt;/container&gt;
+      &lt;staticVlan&gt;20&lt;/staticVlan&gt;
+      &lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+      &lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+      &lt;flowSpecs&gt;
+       &lt;name&gt;udp&lt;/name&gt;
+       &lt;protocol&gt;UDP&lt;/protocol&gt;
+      &lt;/flowSpecs&gt;
+    &lt;/containerConfig&gt;
+&lt;/containerConfig-list&gt;
+
+Response body in JSON:
+{ "containerConfig" : [
+{ "container" : "black",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01", "OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "10",
+"flowSpecs : [
+{ "name": "udp",
+"protocol": "UDP" }
+]
+},
+{ "container" : "red",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "20",
+"flowSpecs": [
+{ "name": "tcp",
+"protocol": "TCP"
+}
+]
+}
+]
+}
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User is not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__container_-container-.html"></a>
+      <h1>/container/{container}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/controller/nb/v2/containermanager/container/%7Bcontainer%7D">/controller/nb/v2/containermanager/container/{container}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#GET">GET</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#PUT">PUT</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#DELETE">DELETE</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get the container configuration for container name requested
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the Container (eg. blue)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_containerConfig.html">containerConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>a List of org.opendaylight.controller.containermanager.ContainerConfig
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/blue
+
+Response body in XML:
+&lt;containerConfig&gt;
+    &lt;container&gt;blue&lt;/container&gt;
+    &lt;staticVlan&gt;10&lt;/staticVlan&gt;
+    &lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+    &lt;nodeConnectors&gt;OF|23@OF|00:00:00:00:00:00:20:21&lt;/nodeConnectors&gt;
+&lt;/containerConfig&gt;
+
+Response body in JSON:
+{
+"containerConfig": [
+{
+"container": "yellow",
+"staticVlan": "10",
+"nodeConnectors": [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:02"
+],
+"flowSpecs": []
+}
+]
+}
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User is not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>403</td>
+          <td>
+            Operation forbidden on default
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The container is not found
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Create a container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the Container (eg. yellow)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Request Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_containerConfig.html">containerConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>details of the container as specified by: org.opendaylight.controller.containermanager.ContainerConfig</p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/yellow
+
+Request body in XML:
+&lt;containerConfig&gt;
+    &lt;container&gt;yellow&lt;/container&gt;
+    &lt;staticVlan&gt;10&lt;/staticVlan&gt;
+    &lt;nodeConnectors&gt;&lt;/nodeConnectors&gt;
+&lt;/containerConfig&gt;
+
+Request body in JSON:
+{
+"container" : "yellow",
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|23@OF|00:00:00:00:00:00:20:21"
+],
+"staticVlan" : "10"
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Container created successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid Container configuration.
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>403</td>
+          <td>
+            Operation forbidden on default
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Container Name is not found
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Failed to create Container due to Conflicting Name
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the Container (eg. green)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml</td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            Container deleted successfully
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>403</td>
+          <td>
+            Operation forbidden on default
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The container is not found
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__container_-container-_flowspecs.html"></a>
+      <h1>/container/{container}/flowspecs</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/controller/nb/v2/containermanager/container/%7Bcontainer%7D/flowspecs">/controller/nb/v2/containermanager/container/{container}/flowspecs</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get all the flowspec in a given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the Container (eg. red)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_flow-spec-configs.html">flow-spec-configs</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>list of all flowspec configured for a container. Flowspec as
+specified by:
+org.opendaylight.controller.containermanager.ContainerFlowConfig
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/red/flowspec
+
+Response body in XML:
+&lt;flow-spec-configs&gt;
+    &lt;flow-spec-config&gt;
+      &lt;name&gt;ssh&lt;/name&gt;
+      &lt;dlVlan&gt;52&lt;/dlVlan&gt;
+      &lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+      &lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+      &lt;protocol&gt;IPv4&lt;/protocol&gt;
+      &lt;tpSrc&gt;23&lt;/tpSrc&gt;
+      &lt;tpDst&gt;100&lt;/tpDst&gt;
+    &lt;/flow-spec-config&gt;
+    &lt;flow-spec-config&gt;
+      &lt;name&gt;http2&lt;/name&gt;
+      &lt;dlVlan&gt;123&lt;/dlVlan&gt;
+      &lt;nwSrc&gt;10.0.0.201&lt;/nwSrc&gt;
+      &lt;nwDst&gt;10.0.0.202&lt;/nwDst&gt;
+      &lt;protocol&gt;&lt;/protocol&gt;
+      &lt;tpSrc&gt;80&lt;/tpSrc&gt;
+      &lt;tpDst&gt;100&lt;/tpDst&gt;
+    &lt;/flow-spec-config&gt;
+&lt;/flow-spec-configs&gt;
+
+Response body in JSON:
+{
+"flow-spec-config": [
+{
+"name": "http",
+"dlVlan" : "52",
+"nwSrc": "10.0.0.201",
+"nwDst": "10.0.0.202",
+"protocol": "",
+"tpSrc": "80",
+"tpDst": "100"
+},
+{
+"name": "ssh",
+"dlVlan" : "123",
+"nwSrc": "10.0.0.101",
+"nwDst": "10.0.0.102",
+"protocol": "IPv4",
+"tpSrc": "23",
+"tpDst": "100"
+}
+]
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The container is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__container_-container-_nodeconnector.html"></a>
+      <h1>/container/{container}/nodeconnector</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/controller/nb/v2/containermanager/container/%7Bcontainer%7D/nodeconnector">/controller/nb/v2/containermanager/container/{container}/nodeconnector</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add node connectors to a container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the container (eg. green)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Request Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_nodeConnectors.html">nodeConnectors</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>The list of strings each representing a node connector in the form "<port type="">|<port id="">@<node type="">|<node id="">", as "OF|1@OF|00:00:00:ab:00:00:00:01"</node></node></port></port></p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>response as dictated by the HTTP Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green/nodeconnector
+
+Request body in XML:
+&lt;nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|2@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|4@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;/nodeConnectors&gt;
+
+Request body in JSON:
+{
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:22",
+"OF|4@OF|00:00:00:00:00:00:00:22"
+]
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            NodeConnectors added successfully
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>403</td>
+          <td>
+            Operation forbidden on default
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container is not found
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Container Entry already exists
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to create nodeconnectors. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Remove node connectors from a container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the container (eg. red)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Request Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_nodeConnectors.html">nodeConnectors</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>(no documentation provided)</p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>response as dictated by the HTTP Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/red/nodeconnector
+
+Request body in XML:
+&lt;nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|2@OF|00:00:00:00:00:00:00:01&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|4@OF|00:00:00:00:00:00:00:22&lt;/nodeConnectors&gt;
+&lt;/nodeConnectors&gt;
+
+Request body in JSON:
+{
+"nodeConnectors" : [
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|2@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:22",
+"OF|4@OF|00:00:00:00:00:00:00:22"
+]
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            Container Entry deleted successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid Container Entry configuration
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container is not found
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            Cannot operate on Default Container when other Containers are active
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to delete node connector. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__container_-container-_flowspec_-flowspec-.html"></a>
+      <h1>/container/{container}/flowspec/{flowspec}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/controller/nb/v2/containermanager/container/%7Bcontainer%7D/flowspec/%7Bflowspec%7D">/controller/nb/v2/containermanager/container/{container}/flowspec/{flowspec}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#GET">GET</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#PUT">PUT</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/resource_ContainerManagerNorthbound.html#DELETE">DELETE</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get flowspec within a given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the Container (eg. green)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>flowspec</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_flow-spec-config.html">flow-spec-config</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>flowspec detail as specified by:
+org.opendaylight.controller.containermanager.ContainerFlowConfig
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/green/flowspec/ssh
+
+Response body in XML:
+&lt;flow-spec-config&gt;
+    &lt;name&gt;ssh&lt;/name&gt;
+    &lt;dlVlan&gt;52&lt;/dlVlan&gt;
+    &lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+    &lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+    &lt;protocol&gt;IPv4&lt;/protocol&gt;
+    &lt;tpSrc&gt;80&lt;/tpSrc&gt;
+    &lt;tpDst&gt;100&lt;/tpDst&gt;
+&lt;/flow-spec-config&gt;
+
+Response body in JSON:
+{
+"protocol" : "IPv4",
+"dlVlan" : "52",
+"nwDst" : "10.0.0.102",
+"name" : "ssh",
+"nwSrc" : "10.0.0.101",
+"tpSrc" : "80",
+"tpDst" : "100"
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Operation successful
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The container is not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller Services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add flowspec to a container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the container (eg. purple)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>flowspec</td>
+          <td>
+            configuration as specified by: org.opendaylight.controller.containermanager.ContainerFlowConfig
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Request Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/containermanager/site/wsdocs/el_ns0_flow-spec-config.html">flow-spec-config</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>(no documentation provided)</p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/purple/flowspec/http
+
+Request body in XML:
+&lt;flow-spec-config&gt;
+    &lt;name&gt;http&lt;/name&gt;
+    &lt;dlVlan&gt;25&lt;/dlVlan&gt;
+    &lt;nwSrc&gt;10.0.0.101&lt;/nwSrc&gt;
+    &lt;nwDst&gt;10.0.0.102&lt;/nwDst&gt;
+    &lt;protocol&gt;&lt;/protocol&gt;
+    &lt;tpSrc&gt;80&lt;/tpSrc&gt;
+    &lt;tpDst&gt;100&lt;/tpDst&gt;
+&lt;/flow-spec-config&gt;
+
+Request body in JSON:
+{
+"name" : "http",
+"dlVlan" : "25",
+"nwSrc" : "10.0.0.101",
+"nwDst" : "10.0.0.102",
+"protocol" : "",
+"tpSrc" : "80",
+"tpDst" : "100"
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            FlowSpec created successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid flowspec configuration
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The container is not found
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Container Entry already exists
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to create Flow specifications. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Remove flowspec from a container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>
+            name of the Container (eg. black)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>flowspec</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml</td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/containermanager/container/black/flowspec/telnet
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            Flow Spec deleted successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid flowspec configuration
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Container or Container Entry not found
+          </td>
+        </tr>
+        <tr>
+          <td>406</td>
+          <td>
+            Cannot operate on Default Container when other Containers are active
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to delete Flowspec. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller service is unavailable
+          </td>
+        </tr>
+      </tbody></table>
+
+      <div class="clear">
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org/">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="./ContainerManagerNorthbound_files/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="./ContainerManagerNorthbound_files/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="./ContainerManagerNorthbound_files/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+
+
+</div></body></html>

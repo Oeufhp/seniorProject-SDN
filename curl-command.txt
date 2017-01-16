@@ -66,3 +66,7 @@ GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nod
 
 view topology:
 GET http://localhost:8181/restconf/operational/network-topology:network-topology/
+
+view specific device (switch, ovsdb):
+
+GET http://localhost:8181/restconf/operational/network-topology:network-topology/{node:id}

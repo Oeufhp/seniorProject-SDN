@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>SubnetsNorthbound</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="./SubnetsNorthbound_files/style.css">
+  <link rel="stylesheet" href="./SubnetsNorthbound_files/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="./SubnetsNorthbound_files/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home"><div><style type="text/css" class="_af_1484558662223_hss_noParse">@keyframes locationAppear{from{transform:scale(0, 0);opacity:1;}to{transform:scale(1, 1);opacity:1;}}</style><style type="text/css">@font-face{font-family:'Gotha Pro';src:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/fonts/GothaProReg.otf')}#_af_1484558662223_hss_status_icon_container{font-family:'Gotha Pro';line-height:1em !important;position:fixed !important;z-index:999999999999999 !important;width:56px !important;height:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon{width:56px !important;height:56px !important;background-size:auto 56px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:30px !important;cursor:pointer !important;position:absolute !important;bottom:0 !important;left:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container._af_1484558662223_hss_disconnected{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector{position:absolute !important;display:none !important;left:0 !important;top:-195px !important;height:195px !important;width:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location{width:35px !important;height:35px !important;background-size:auto 35px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:35px !important;cursor:pointer !important;position:absolute !important;opacity:0 !important;left:10px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location ._af_1484558662223_hss_status_icon_sign{top:6px !important;right:43px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(1){top:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(2){top:50px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(3){top:100px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(4){top:150px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:hover ._af_1484558662223_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container ._af_1484558662223_hss_status_icon_sign{font-family:'Gotha Pro';position:absolute !important;display:none !important;right:65px !important;top:15px !important;background:rgba(70,70,70,0.9) !important;border-radius:2px !important;box-shadow:0 1px 2px rgba(0,0,0,0.15) !important;color:#ececec !important;font-weight:bold !important;line-height:1em !important;overflow:hidden !important;padding:6px 8px !important;text-overflow:ellipsis !important;vertical-align:middle !important;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif !important;font-size:12px !important;white-space:nowrap !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/icon-128.png') !important;background-size:auto 75px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon:hover ._af_1484558662223_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon_selector{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location{animation-name:locationAppear !important;animation-duration:.3s !important;animation-fill-mode:forwards !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(1){animation-delay:.3s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(2){animation-delay:.2s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(3){animation-delay:.1s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:nth-of-type(4){animation-delay:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container:hover #_af_1484558662223_hss_status_icon_selector ._af_1484558662223_hss_location:hover ._af_1484558662223_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container._af_1484558662223_hss_connecting #_af_1484558662223_hss_status_icon_selector{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container._af_1484558662223_hss_connecting #_af_1484558662223_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/loader.gif') !important;background-size:auto 56px !important;animation-duration:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558662223_hss_status_icon_container._af_1484558662223_hss_connecting #_af_1484558662223_hss_status_icon:hover ._af_1484558662223_hss_status_icon_sign{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}._af_1484558662223_hss_ca{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ca.svg')}._af_1484558662223_hss_ch{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ch.svg')}._af_1484558662223_hss_dk{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/dk.svg')}._af_1484558662223_hss_es{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/es.svg')}._af_1484558662223_hss_fr{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/fr.svg')}._af_1484558662223_hss_jp{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/jp.svg')}._af_1484558662223_hss_nl{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/nl.svg')}._af_1484558662223_hss_ru{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ru.svg')}._af_1484558662223_hss_se{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/se.svg')}._af_1484558662223_hss_sg{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/sg.svg')}._af_1484558662223_hss_gb{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/gb.svg')}._af_1484558662223_hss_us{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/us.svg')}._af_1484558662223_hss_de{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/de.svg')}</style><div id="_af_1484558662223_hss_status_icon_container" class="_af_1484558662223_hss_disconnected" draggable="true" style="right: 15px !important; bottom: 15px !important;"><div id="_af_1484558662223_hss_status_icon" class="_af_1484558662223_hss_nl"><div class="_af_1484558662223_hss_status_icon_sign">Best choice for browsing</div></div><div id="_af_1484558662223_hss_status_icon_selector"><div class="_af_1484558662223_hss_location _af_1484558662223_hss_ca"><div class="_af_1484558662223_hss_status_icon_sign">Browse from Canada</div></div><div class="_af_1484558662223_hss_location _af_1484558662223_hss_fr"><div class="_af_1484558662223_hss_status_icon_sign">Browse from France</div></div><div class="_af_1484558662223_hss_location _af_1484558662223_hss_es"><div class="_af_1484558662223_hss_status_icon_sign">Browse from Spain</div></div><div class="_af_1484558662223_hss_location _af_1484558662223_hss_de"><div class="_af_1484558662223_hss_status_icon_sign">Browse from Germany</div></div></div></div></div>
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/index.html">SubnetsNorthbound</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/rest.html">REST</a></li>
+            <li id="nav-data"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/model.html">Data Model</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/downloads.html">Files and Libraries</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html">SubnetsNorthbound</a>
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html">SubnetsNorthbound</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>SubnetsNorthbound</h1>
+
+      <p>This class provides REST APIs to manage subnets.
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html#path__-containerName-_subnets.html">/{containerName}/subnets</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html#path__-containerName-_subnet_-subnetName-.html">/{containerName}/subnet/{subnetName}</a></li>
+      </ul>
+      <a name="path__-containerName-_subnets.html"></a>
+      <h1>/{containerName}/subnets</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/controller/nb/v2/subnetservice/%7BcontainerName%7D/subnets">/controller/nb/v2/subnetservice/{containerName}/subnets</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            List all the subnets in a given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            container in which we want to query the subnets
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>a List of SubnetConfig
+
+</p><pre>Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnets
+
+Response body in XML:
+&lt;list&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.31.54.254/24&lt;/subnet&gt;
+&lt;/subnetConfig&gt;
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;20.18.1.254/16&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|11@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|13@OF|00:00:00:aa:bb:cc:dd:ee&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+&lt;/list&gt;
+Response body in JSON:
+{
+"subnetConfig": [
+{
+"name": "marketingdepartment",
+"subnet": "30.31.54.254/24",
+"nodeConnectors": [
+"OF|04@OF|00:00:00:00:00:00:00:04",
+"OF|07@OF|00:00:00:00:00:00:00:07"
+]
+},
+{
+"name":"salesdepartment",
+"subnet":"20.18.1.254/16",
+"nodeConnectors": [
+"OF|11@OF|00:00:00:aa:bb:cc:dd:ee",
+"OF|13@OF|00:00:00:aa:bb:cc:dd:ee"
+]
+}
+]
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName passed was not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_subnet_-subnetName-.html"></a>
+      <h1>/{containerName}/subnet/{subnetName}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/controller/nb/v2/subnetservice/%7BcontainerName%7D/subnet/%7BsubnetName%7D">/controller/nb/v2/subnetservice/{containerName}/subnet/{subnetName}</a></p>
+      <p>
+        The following operations are supported on this resource:
+      </p>
+      <ul>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html#GET">GET</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html#PUT">PUT</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html#DELETE">DELETE</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/resource_SubnetsNorthbound.html#POST">POST</a></li>
+      </ul>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            List the configuration of a subnet in a given container
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            container in which we want to query the subnet
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            of the subnet being queried
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/el_ns0_subnetConfig.html">subnetConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>SubnetConfig
+
+</p><pre>Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/marketingdepartment
+
+Response body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;marketingdepartment&lt;/name&gt;
+&lt;subnet&gt;30.0.0.1/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|1@OF|00:00:00:00:00:00:00:01&lt;/nodePorts&gt;
+&lt;nodeConnectors&gt;OF|3@OF|00:00:00:00:00:00:00:03&lt;/nodePorts&gt;
+&lt;/subnetConfig&gt;
+
+Response body in JSON:
+{
+"name":"marketingdepartment",
+"subnet":"30.0.0.1/24",
+"nodeConnectors":[
+"OF|1@OF|00:00:00:00:00:00:00:01",
+"OF|3@OF|00:00:00:00:00:00:00:03"
+]
+}
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName or subnetName passed was not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add a subnet into the specified container context, node connectors are
+optional
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            name of the container context in which the subnet needs to be added
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            name of new subnet to be added
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Request Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/el_ns0_subnetConfig.html">subnetConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml</td>
+        </tr>
+      </tbody></table>
+      <p>the SubnetConfig structure in request body</p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml</td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            Subnet created successfully
+          </td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>
+            Invalid data passed
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Subnet name in url conflicts with name in request body
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            Container name passed was not found or subnet config is null
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Internal Server Error: Addition of subnet failed
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete a subnet from the specified container context
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            name of the container in which subnet needs to be removed
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            name of new subnet to be deleted
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml</td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/engdepartment
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            No Content
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName passed was not found
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Internal Server Error : Removal of subnet failed
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Modify a subnet. Replace the existing subnet with the new specified one.
+For now only port list modification is allowed. If the respective subnet
+configuration does not exist this call is equivalent to a subnet
+creation.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container context
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>subnetName</td>
+          <td>
+            Name of the subnet to be modified
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Request Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/subnets/site/wsdocs/el_ns0_subnetConfig.html">subnetConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>the SubnetConfig structure in request body parameter</p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>*/*<br>application/xml<br></td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/salesdepartment
+
+Request body in XML:
+&lt;subnetConfig&gt;
+&lt;name&gt;salesdepartment&lt;/name&gt;
+&lt;subnet&gt;172.173.174.254/24&lt;/subnet&gt;
+&lt;nodeConnectors&gt;OF|22@OF|00:00:11:22:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;nodeConnectors&gt;OF|39@OF|00:00:ab:cd:33:44:55:66&lt;/nodeConnectors&gt;
+&lt;/subnetConfig&gt;
+
+Request body in JSON:
+{
+"name":"salesdepartment",
+"subnet":"172.173.174.254/24",
+"nodeConnectors":[
+"OF|22@OF|00:00:11:22:33:44:55:66",
+"OF|39@OF|00:00:ab:cd:33:44:55:66"
+]
+}
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>
+            Configuration replaced successfully
+          </td>
+        </tr>
+        <tr>
+          <td>401</td>
+          <td>
+            User not authorized to perform this operation
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Subnet name in url conflicts with name in request body
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The containerName or subnetName is not found
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Internal server error: Modify subnet failed
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            Service unavailable
+          </td>
+        </tr>
+      </tbody></table>
+
+      <div class="clear">
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org/">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="./SubnetsNorthbound_files/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="./SubnetsNorthbound_files/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="./SubnetsNorthbound_files/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+
+
+</div></body></html>

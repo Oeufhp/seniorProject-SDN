@@ -1,0 +1,7 @@
+karaf features:
+
+odl-dlux-core odl-dlux-all odl-dlux-node odl-dlux-yangui
+odl-dlux-yangvisualizer odl-l2switch-switch odl-l2switch-switch-ui 
+odl-of-config-rest odl-ovsdb-southbound-impl-rest odl-ovsdb-southbound-impl-ui 
+odl-openflowplugin-flow-services-rest odl-openflowplugin-flow-services-ui odl-restconf odl-restconf-all
+odl-nic-console odl-netconf-connector-all odl-ovsdb-ui odl-mdsal-apidocs odl-mdsal-all

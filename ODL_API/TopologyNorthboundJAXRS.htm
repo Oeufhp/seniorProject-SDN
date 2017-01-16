@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/resource_TopologyNorthboundJAXRS.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>TopologyNorthboundJAXRS</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="./TopologyNorthboundJAXRS_files/style.css">
+  <link rel="stylesheet" href="./TopologyNorthboundJAXRS_files/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="./TopologyNorthboundJAXRS_files/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home"><div><style type="text/css" class="_af_1484558710292_hss_noParse">@keyframes locationAppear{from{transform:scale(0, 0);opacity:1;}to{transform:scale(1, 1);opacity:1;}}</style><style type="text/css">@font-face{font-family:'Gotha Pro';src:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/fonts/GothaProReg.otf')}#_af_1484558710292_hss_status_icon_container{font-family:'Gotha Pro';line-height:1em !important;position:fixed !important;z-index:999999999999999 !important;width:56px !important;height:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon{width:56px !important;height:56px !important;background-size:auto 56px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:30px !important;cursor:pointer !important;position:absolute !important;bottom:0 !important;left:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container._af_1484558710292_hss_disconnected{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector{position:absolute !important;display:none !important;left:0 !important;top:-195px !important;height:195px !important;width:56px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location{width:35px !important;height:35px !important;background-size:auto 35px !important;box-shadow:0 0 4px rgba(0,0,0,0.14),0 4px 8px rgba(0,0,0,0.28) !important;background-position:center center !important;border-radius:35px !important;cursor:pointer !important;position:absolute !important;opacity:0 !important;left:10px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location ._af_1484558710292_hss_status_icon_sign{top:6px !important;right:43px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(1){top:0 !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(2){top:50px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(3){top:100px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(4){top:150px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:hover ._af_1484558710292_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container ._af_1484558710292_hss_status_icon_sign{font-family:'Gotha Pro';position:absolute !important;display:none !important;right:65px !important;top:15px !important;background:rgba(70,70,70,0.9) !important;border-radius:2px !important;box-shadow:0 1px 2px rgba(0,0,0,0.15) !important;color:#ececec !important;font-weight:bold !important;line-height:1em !important;overflow:hidden !important;padding:6px 8px !important;text-overflow:ellipsis !important;vertical-align:middle !important;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif !important;font-size:12px !important;white-space:nowrap !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/icon-128.png') !important;background-size:auto 75px !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon:hover ._af_1484558710292_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon_selector{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location{animation-name:locationAppear !important;animation-duration:.3s !important;animation-fill-mode:forwards !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(1){animation-delay:.3s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(2){animation-delay:.2s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(3){animation-delay:.1s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:nth-of-type(4){animation-delay:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container:hover #_af_1484558710292_hss_status_icon_selector ._af_1484558710292_hss_location:hover ._af_1484558710292_hss_status_icon_sign{display:block !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container._af_1484558710292_hss_connecting #_af_1484558710292_hss_status_icon_selector{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container._af_1484558710292_hss_connecting #_af_1484558710292_hss_status_icon{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/icons/loader.gif') !important;background-size:auto 56px !important;animation-duration:0s !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}#_af_1484558710292_hss_status_icon_container._af_1484558710292_hss_connecting #_af_1484558710292_hss_status_icon:hover ._af_1484558710292_hss_status_icon_sign{display:none !important;font-family:'Gotha Pro' !important;line-height: 1em !important;}._af_1484558710292_hss_ca{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ca.svg')}._af_1484558710292_hss_ch{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ch.svg')}._af_1484558710292_hss_dk{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/dk.svg')}._af_1484558710292_hss_es{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/es.svg')}._af_1484558710292_hss_fr{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/fr.svg')}._af_1484558710292_hss_jp{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/jp.svg')}._af_1484558710292_hss_nl{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/nl.svg')}._af_1484558710292_hss_ru{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/ru.svg')}._af_1484558710292_hss_se{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/se.svg')}._af_1484558710292_hss_sg{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/sg.svg')}._af_1484558710292_hss_gb{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/gb.svg')}._af_1484558710292_hss_us{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/us.svg')}._af_1484558710292_hss_de{background-image:url('chrome-extension://bihmplhobchoageeokmgbdihknkjbknd/assets/flags/4x3/de.svg')}</style><div id="_af_1484558710292_hss_status_icon_container" class="_af_1484558710292_hss_disconnected" draggable="true" style="right: 15px !important; bottom: 15px !important;"><div id="_af_1484558710292_hss_status_icon" class="_af_1484558710292_hss_nl"><div class="_af_1484558710292_hss_status_icon_sign">Best choice for browsing</div></div><div id="_af_1484558710292_hss_status_icon_selector"><div class="_af_1484558710292_hss_location _af_1484558710292_hss_de"><div class="_af_1484558710292_hss_status_icon_sign">Browse from Germany</div></div><div class="_af_1484558710292_hss_location _af_1484558710292_hss_se"><div class="_af_1484558710292_hss_status_icon_sign">Browse from Sweden</div></div><div class="_af_1484558710292_hss_location _af_1484558710292_hss_ca"><div class="_af_1484558710292_hss_status_icon_sign">Browse from Canada</div></div><div class="_af_1484558710292_hss_location _af_1484558710292_hss_es"><div class="_af_1484558710292_hss_status_icon_sign">Browse from Spain</div></div></div></div></div>
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/index.html">TopologyNorthboundJAXRS</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/rest.html">REST</a></li>
+            <li id="nav-data"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/model.html">Data Model</a></li>
+            <li id="nav-downloads"><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/downloads.html">Files and Libraries</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/model.html">Data Model</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/downloads.html">Files and Libraries</a></li>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/resource_TopologyNorthboundJAXRS.html">TopologyNorthboundJAXRS</a>
+              <ul>
+                <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/resource_TopologyNorthboundJAXRS.html">TopologyNorthboundJAXRS</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>TopologyNorthboundJAXRS</h1>
+
+      <p>Topology Northbound REST API
+
+<br>
+<br>
+Authentication scheme : <b>HTTP Basic</b><br>
+Authentication realm : <b>opendaylight</b><br>
+Transport : <b>HTTP and HTTPS</b><br>
+<br>
+HTTPS Authentication is disabled by default.</p>
+      <p>The following resources are part of this group:</p>
+      <ul>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/resource_TopologyNorthboundJAXRS.html#path__-containerName-.html">/{containerName}</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/resource_TopologyNorthboundJAXRS.html#path__-containerName-_userLinks.html">/{containerName}/userLinks</a></li>
+        <li><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/resource_TopologyNorthboundJAXRS.html#path__-containerName-_userLink_-name-.html">/{containerName}/userLink/{name}</a></li>
+      </ul>
+      <a name="path__-containerName-.html"></a>
+      <h1>/{containerName}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/controller/nb/v2/topology/%7BcontainerName%7D">/controller/nb/v2/topology/{containerName}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Retrieve the Topology
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            The container for which we want to retrieve the topology (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/el_ns0_topology.html">topology</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>A List of EdgeProps each EdgeProp represent an Edge of the graph
+with the corresponding properties attached to it.
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;topology&gt;
+&lt;edgeProperties&gt;
+&lt;edge&gt;
+&lt;tailNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/tailNodeConnector&gt;
+&lt;headNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:51&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/headNodeConnector&gt;
+&lt;/edge&gt;
+&lt;properties&gt;
+&lt;state&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/state&gt;
+&lt;config&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/config&gt;
+&lt;name&gt;
+&lt;value&gt;C1_2-L2_2&lt;/value&gt;
+&lt;/name&gt;
+&lt;timeStamp&gt;
+&lt;value&gt;1377279422032&lt;/value&gt;
+&lt;name&gt;creation&lt;/name&gt;
+&lt;/timeStamp&gt;
+&lt;/properties&gt;
+&lt;/edgeProperties&gt;
+&lt;edgeProperties&gt;
+&lt;edge&gt;
+&lt;tailNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:51&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/tailNodeConnector&gt;
+&lt;headNodeConnector&gt;
+&lt;node&gt;
+&lt;id&gt;00:00:00:00:00:00:00:02&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/node&gt;
+&lt;id&gt;2&lt;/id&gt;
+&lt;type&gt;OF&lt;/type&gt;
+&lt;/headNodeConnector&gt;
+&lt;/edge&gt;
+&lt;properties&gt;
+&lt;state&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/state&gt;
+&lt;name&gt;
+&lt;value&gt;L2_2-C1_2&lt;/value&gt;
+&lt;/name&gt;
+&lt;config&gt;
+&lt;value&gt;1&lt;/value&gt;
+&lt;/config&gt;
+&lt;timeStamp&gt;
+&lt;value&gt;1377279423564&lt;/value&gt;
+&lt;name&gt;creation&lt;/name&gt;
+&lt;/timeStamp&gt;
+&lt;/properties&gt;
+&lt;/edgeProperties&gt;
+&lt;/topology&gt;
+
+Response body in JSON:
+{
+"edgeProperties":[
+{
+"edge":{
+"tailNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+},
+"headNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:51",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+}
+},
+"properties":{
+"timeStamp": {
+"value": 1379527162648,
+"name": "creation",
+},
+"name": {
+"value": "s2-eth3"
+},
+"state": {
+"value": 1
+},
+"config": {
+"value": 1
+},
+"bandwidth": {
+"value": 10000000000
+}
+}
+},
+{
+"edge":{
+"tailNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:51",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+},
+"headNodeConnector":{
+"node":{
+"id":"00:00:00:00:00:00:00:02",
+"type":"OF"
+},
+"id":"2",
+"type":"OF"
+}
+},
+"properties":{
+"timeStamp": {
+"value": 1379527162648,
+"name": "creation",
+}
+}
+}
+]
+}
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name was not found
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_userLinks.html"></a>
+      <h1>/{containerName}/userLinks</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/controller/nb/v2/topology/%7BcontainerName%7D/userLinks">/controller/nb/v2/topology/{containerName}/userLinks</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Retrieve the user configured links
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            The container for which we want to retrieve the user links (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/el_ns0_list.html">list</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>A List of user configured links
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLinks
+
+Response body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;list&gt;
+&lt;userLinks&gt;
+&lt;status&gt;Success&lt;/status&gt;
+&lt;name&gt;link1&lt;/name&gt;
+&lt;srcNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:02&lt;/srcNodeConnector&gt;
+&lt;dstNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:51&lt;/dstNodeConnector&gt;
+&lt;/userLinks&gt;
+&lt;/list&gt;
+
+Response body in JSON:
+{
+"userLinks": [
+{
+"status": "Success",
+"name": "link1",
+"srcNodeConnector": "OF|2@OF|00:00:00:00:00:00:00:02",
+"dstNodeConnector": "OF|5@OF|00:00:00:00:00:00:00:05"
+}
+]
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name was not found
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="path__-containerName-_userLink_-name-.html"></a>
+      <h1>/{containerName}/userLink/{name}</h1>
+      <p class="note">Mount Point: <a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/controller/nb/v2/topology/%7BcontainerName%7D/userLink/%7Bname%7D">/controller/nb/v2/topology/{containerName}/userLink/{name}</a></p>
+      <a name="PUT"></a>
+      <h2>PUT</h2>
+      <p>
+            Add an User Link
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>
+            Name of the user link
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Request Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td><a href="http://opendaylight.nbi.sdngeeks.com/generatedDocs/topology/site/wsdocs/el_ns0_topologyUserLinkConfig.html">topologyUserLinkConfig</a></td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>(no documentation provided)</p>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLink/link1
+
+Request body in XML:
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;topologyUserLinkConfig&gt;
+&lt;status&gt;Success&lt;/status&gt;
+&lt;name&gt;link1&lt;/name&gt;
+&lt;srcNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:02&lt;/srcNodeConnector&gt;
+&lt;dstNodeConnector&gt;OF|2@OF|00:00:00:00:00:00:00:51&lt;/dstNodeConnector&gt;
+&lt;/topologyUserLinkConfig&gt;
+
+Request body in JSON:
+{
+"status":"Success",
+"name":"link1",
+"srcNodeConnector":"OF|2@OF|00:00:00:00:00:00:00:02",
+"dstNodeConnector":"OF|2@OF|00:00:00:00:00:00:00:51"
+}
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>
+            User Link added successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name was not found
+          </td>
+        </tr>
+        <tr>
+          <td>409</td>
+          <td>
+            Failed to add User Link due to Conflicting Name
+          </td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>
+            Failed to add User Link. Failure Reason included in HTTP Error response
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+      <a name="DELETE"></a>
+      <h2>DELETE</h2>
+      <p>
+            Delete an User Link
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tbody><tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>containerName</td>
+          <td>
+            Name of the Container (Eg. 'default')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>
+            Name of the Link Configuration (Eg. 'config1')
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+      <h3>Response Body</h3>
+      <table>
+        <tbody><tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/xml<br>application/json</td>
+        </tr>
+      </tbody></table>
+      <p>Response as dictated by the HTTP Response Status code
+
+</p><pre>
+Example:
+
+Request URL:
+http://localhost:8080/controller/nb/v2/topology/default/userLink/config1
+
+</pre><p></p>
+      <h3>Status Codes</h3>
+      <table>
+        <tbody><tr>
+          <th>code</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>204</td>
+          <td>
+            User link removed successfully
+          </td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>
+            The Container Name or Link Configuration Name was not found
+          </td>
+        </tr>
+        <tr>
+          <td>503</td>
+          <td>
+            One or more of Controller services are unavailable
+          </td>
+        </tr>
+      </tbody></table>
+
+      <div class="clear">
+    </div>
+    <footer>
+      <div id="footer">
+        Generated by <a href="http://enunciate.codehaus.org/">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="./TopologyNorthboundJAXRS_files/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="./TopologyNorthboundJAXRS_files/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="./TopologyNorthboundJAXRS_files/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+
+
+</div></body></html>
