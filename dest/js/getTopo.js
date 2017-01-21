@@ -1,6 +1,8 @@
 
 var URL_TOPOLOGY = 'http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';   
-var topologyData,topoData={};
+var topologyData={};
+topologyData.nodes=[];
+topologyData.links=[];
 $.ajax({
     url: URL_TOPOLOGY,
     method:"GET",
@@ -12,19 +14,17 @@ $.ajax({
         "accept": "application/json",
     },
     success: function(data) {
-       topologyData=data;
-        // var topoData={};
-        // add nodes object array
-        topoData.nodes = [];
+       //topologyData=data;
+    //    topologyData.nodes=[];
+        var x=192;
+        var y=342;
         // var nodeInfoTableData = self.nodeInfoData();
         for(i=0;i<data.topology[0].node.length;i++){
             var id=0,name;
-            var x=0;
-            var y=0;
             var n=1;
             var prefix="";
             if(data.topology[0].node[i]['node-id']!=undefined){
-                console.log(data.topology[0].node[i]['node-id']);
+                //console.log(data.topology[0].node[i]['node-id']);
                 id=i;
                 x+=10;
                 y+=10;
@@ -34,99 +34,86 @@ $.ajax({
                 name="Host"+n;
                 n++;
             }
-            topoData.nodes.push({
+            topologyData.nodes.push({
                 'id':id,
                 'name':name,
                 'x':x,
-                'y':y
+                'y':y,
+                type:"switch"
             })
+            // console.log(topologyData.nodes[0]);
         }
-        topoData.links=[];
-        for(var i=0;i<data.topology[0].link.length;i++){
-            console.log(data.topology[0].link[i]);
+        // topologyData.links=[];
+        for(i=0;i<data.topology[0].link.length;i++){
+            var linkID=0;
             var sourceNodeID=data.topology[0].link[i].source['source-node'];
-            console.log(sourceNodeID);
+            //console.log(sourceNodeID);
             var destinationNodeID=data.topology[0].link[i].destination['dest-node'];
-            console.log(destinationNodeID);
-            for (x = 0; x < topoData.nodes.length; x++) {
-                var source = topoData.nodes[x].name;
-                console.log(source);
-                for (y = 0; y < topoData.nodes.length; y++) {
-                    if (destinationNodeID == topoData.nodes[y]['node-id']) {
-                        var target = topoData.nodes[y].name;
-                        console.log(target);
-                        var linksArrayLength = topoData.links.length
-                        if (linksArrayLength > 0) {
-                            var count = 0;
-                            var index;
-                            for (z = 0; z < topoData.links.length; z++) {
-                                if (source == topoData.links[z].target && target == topoData.links[z].source) {
-                                    count++;
-                                    index = z;
-                                }
-                            }  
-                            if (count == 0){
-                                // push link into links array
-                                topoData.links.push({
-                                    'source': source,
-                                    'target': target
-                                })
-                            }
-                        }
+            //console.log(destinationNodeID);
+            for (x = 0; x < topologyData.nodes.length; x++) {
+                var source = topologyData.nodes[x].id;
+                id=source;
+                //console.log(source);
+                for (y = 0; y < topologyData.nodes.length; y++) {
+                    //console.log(topoData.nodes[y]['name']);
+                    if (destinationNodeID == topologyData.nodes[y]['name']) {
+                        var target = topologyData.nodes[y].id;
+                        //console.log(target);
+                        if(source!=target){
+                            topologyData.links.push({
+                                 'id':id,
+                                 'source': source,
+                                 'target': target
+                            })
+                            // console.log(topologyData.links);
+                        }    
                     }    
                 }    
              }
        }
     }  
 });
-nx.define('MyTopology', nx.ui.Component, {
-   view: {
-       content: {
-           type: 'nx.graphic.Topology',
-           props: {
-               width: 1366,
-               height: 768,
-               nodeConfig: {
-                   label: 'model.name'
-               },
-               showIcon: true,
-               data: topoData
-           }
-       }
-   }
-});
-var app = new nx.ui.Application();
-var comp = new MyTopology();
-comp.attach(app);
-// initialize a topology
-// var topo = new nx.graphic.Topology({
-//     // set the topology view's with and height
-//     width: 1366,
-//     height: 768,
-//     // node config
-//     nodeConfig: {
-//         // label display name from of node's model, could change to 'model.name' to show name
-//         label: 'model.name'
-//     },
-//     // link config
-//     linkConfig: {
-//         // multiple link type is curve, could change to 'parallel' to use parallel link
-//         linkType: 'curve'
-//     },
-//     // show node's icon, could change to false to show dot
-//     showIcon: true,
-//     data:topoData,
-//     // identified with name
-//     // identityKey: 'name',
-    
-//     // auto layout the topology
-//     autoLayout: true,
-//     dataProcessor: 'force'
-// });
+console.log(topologyData);
+(function (nx) {
+    /**
+     * define application
+     */
+    var Shell = nx.define(nx.ui.Application, {
+        methods: {
+            start: function () {
+                //your application main entry
+                // initialize a topology
+                var topo = new nx.graphic.Topology({
+                    // set the topology view's with and height
+                    type: 'nx.graphic.Topology',
+                    width: 1366,
+                    height: 768,
+                    theme: 'green',
+                    identityKey: 'id',
+                    // node config
+                    nodeConfig: {
+                        // label display name from of node's model, could change to 'model.id' to show id
+                        label: 'model.name',
+                        iconType:'switch'
+                    },
+                    // link config
+                    linkConfig: {
+                        // multiple link type is curve, could change to 'parallel' to use parallel link
+                        linkType: 'curve'
+                    },
+                    // show node's icon, could change to false to show dot
+                    showIcon: true,
+                    data: topologyData
+                });
 
-// //set converted data to topology
-// console.log(topoData);
-// topo.data(topoData);
-// //attach topology to document
-// topo.attach(this);
+                //set data to topology
+                topo.data(topologyData);
+                //attach topology to document
+                topo.attach(this);
+            }
+        }
+    });
+    var shell = new Shell();
+    shell.start();
+})(nx);
 

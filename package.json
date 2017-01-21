@@ -1,0 +1,32 @@
+{
+  "name": "yes",
+  "version": "1.0.0",
+  "description": "SDN app with UI. This is Pitarn's senior project",
+  "main": "no",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://oeufhp@github.com/Oeufhp/seniorProject-SDN.git"
+  },
+  "keywords": [
+    "network",
+    "SDN"
+  ],
+  "author": "Pitarn Harnpanichpun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Oeufhp/seniorProject-SDN/issues"
+  },
+  "homepage": "https://github.com/Oeufhp/seniorProject-SDN#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.79.0",
+    "path":"^0.12.7",
+    "bower":"^1.8.0"
+  }
+}
