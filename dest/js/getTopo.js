@@ -48,13 +48,10 @@ $.ajax({
             // console.log(data.topology[0].link.length)
             var linkID=0;
             var sourceNodeID=data.topology[0].link[i].source['source-node'];
-            //console.log(sourceNodeID);
             var destinationNodeID=data.topology[0].link[i].destination['dest-node'];
-            //console.log(destinationNodeID);
             for (x = 0; x < topologyData.nodes.length; x++) {
                 var source = topologyData.nodes[x].id;
-                id=source;
-                //console.log(source);
+                linkID=source;
                 for (y = 0; y < topologyData.nodes.length; y++) {
                     //console.log(topoData.nodes[y]['name']);
                     if (destinationNodeID == topologyData.nodes[y]['name']) {
@@ -62,7 +59,7 @@ $.ajax({
                         //console.log(target);
                         if(source!=target){
                             topologyData.links.push({
-                                 'id':id,
+                                 'id':linkID,
                                  'source': source,
                                  'target': target
                             })
@@ -87,8 +84,8 @@ console.log(topologyData);
                 var topo = new nx.graphic.Topology({
                     // set the topology view's with and height
                     type: 'nx.graphic.Topology',
-                    width: 1024,
-                    height: 768,
+                    width: 800,
+                    height: 400,
                     theme: 'green',
                     identityKey: 'id',
                     // node config
@@ -103,8 +100,12 @@ console.log(topologyData);
                         linkType: 'curve'
                     },
                     // show node's icon, could change to false to show dot
+                    adaptive: true,
                     showIcon: true,
-                    data: topologyData
+                    data: topologyData,
+                    dataProcessor: 'force',
+                    enableSmartLabel: true,
+                    supportMultipleLink: true
                 });
 
                 //set data to topology
