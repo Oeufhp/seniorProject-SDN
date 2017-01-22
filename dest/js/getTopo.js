@@ -45,6 +45,7 @@ $.ajax({
         }
         // topologyData.links=[];
         for(i=0;i<data.topology[0].link.length;i++){
+            // console.log(data.topology[0].link.length)
             var linkID=0;
             var sourceNodeID=data.topology[0].link[i].source['source-node'];
             //console.log(sourceNodeID);
@@ -86,7 +87,7 @@ console.log(topologyData);
                 var topo = new nx.graphic.Topology({
                     // set the topology view's with and height
                     type: 'nx.graphic.Topology',
-                    width: 1366,
+                    width: 1024,
                     height: 768,
                     theme: 'green',
                     identityKey: 'id',
