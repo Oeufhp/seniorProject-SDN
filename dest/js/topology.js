@@ -10,7 +10,7 @@
 		view: {
 			content: [
 				{
-					'name': 'myTopology', 
+					'name': 'topology', 
 					'type': 'nx.graphic.Topology', 
 					'props': {
 						'adaptive': true, 
