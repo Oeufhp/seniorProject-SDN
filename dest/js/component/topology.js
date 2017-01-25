@@ -20,11 +20,11 @@
 							'iconType': 'switch',
 						},
 						'linkConfig': {
-							'linkType': 'curve' // also: parallel
+							'linkType': 'parallel' // also: parallel
 						},
 						'identityKey': 'name', // helps to link source and target
-						'width': 800,
-						'height': 400,
+						'width': 1200,
+						'height': 600,
                         'theme':'green',
 						'dataProcessor': 'force', // arrange nodes positions if not set
 						'enableSmartLabel': true, // moves the labels in order to avoid overlay of them

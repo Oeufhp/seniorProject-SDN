@@ -3,6 +3,7 @@
 	var topologyContainer = new TopologyContainer();
 	// topology instance was made in TopologyContainer, but we can invoke its members through 'topology' variable for convenience
 	var topology = topologyContainer.topology();
+    var formcomponent=new formComponent();
     var topologyData={};
 	//assign the app to the <div>
 	app.container(document.getElementById('next-app'));
@@ -19,10 +20,30 @@
             "accept": "application/json",
         },
         success: function(data){
-            console.log(data);
             topologyData=jsonToCTM(data);
+            console.log(topologyData);
             topology.data(topologyData);
             topology.attach(app);
+            formcomponent.attach(app);
         }
+    });
+    topology.on("topologyGenerated", function(){
+        // path layer - need to draw paths
+        var pathLayer = topology.getLayer("paths");
+        // node dictionary to get nodes by name (by default only 'id' is available)
+        var nodesDict = topology.getLayer("nodes").nodeDictionary();
+
+        var linkList = getLinkList(topology, nodesDict, pathHops);
+
+        var pathInst = new nx.graphic.Topology.Path({
+            "pathWidth": 3,
+            "links": linkList,
+            "arrow": "cap",
+            "sourceNode": nodesDict.toArray()[0],
+            "pathStyle": {
+                "fill": "#f00"
+            }
+        });
+        pathLayer.addPath(pathInst);
     });
 })(nx);
