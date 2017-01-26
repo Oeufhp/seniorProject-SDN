@@ -8,10 +8,13 @@
 sudo ovs-vsctl --if-exists del-br br94 
 sudo ovs-vsctl --may-exist add-br br94 
 
+#set openflow protocol version for bridge
+sudo ovs-vsctl set bridge br94 protocols=OpenFlow13
+
 # add physical interface to bridge
 sudo ovs-vsctl --may-exist add-port br94 eth1 
 sudo ovs-vsctl --may-exist add-port br94 eth2
-sudo ovs-vsctl --may-exist add-port br94 eth3 
+# sudo ovs-vsctl --may-exist add-port br94 eth3 
 
 #config ip of interface to bridge 
 #ip=""
@@ -24,7 +27,7 @@ sudo ovs-vsctl --may-exist add-port br94 eth3
 #sudo ifconfig br94 up
 
 #set controller to ovs
-#sudo ovs-vsctl set-controller br0 tcp:192.168.20.200:6633
+sudo ovs-vsctl set-controller br94 tcp:192.168.10.84:6633
 
 #add rules to switch
 #sudo ovs-ofctl add-flow "br94" in_port=3,actions:output=2
@@ -32,9 +35,9 @@ sudo ovs-vsctl --may-exist add-port br94 eth3
 
 
 #check configuration
-sudo ovs-vsctl show
+# sudo ovs-vsctl show
 
 #check flows that has recently added
-#sudo ovs-ofctl dump-flows br94
+#sudo ovs-ofctl -O OpenFlow13 dump-flows br94
 
 

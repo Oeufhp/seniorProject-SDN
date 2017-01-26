@@ -95,12 +95,13 @@
                                             tag:'div',
                                             content:[
                                                 {
-                                                    tag:'a',
+                                                    tag:'button',
                                                     content:'add flow',
                                                     props:{
-                                                        href:'',
+                                                        type:'submit',
                                                         class:'btn btn-default',
-                                                        style:' width:120px;'
+                                                        style:' width:120px;',
+                                                        form:'addFlowForm'
                                                     },
                                                     events:{
                                                         'click':'{#addFlow}'
@@ -121,12 +122,13 @@
                             ],
                             props:{
                                 class:'form-horizontal',
+                                id:'addFlowForm'
                             }
                         }
                     ],
                     props:{
                         class:'container',
-                        style:'width:100%; background-color:#FF1A9085;'
+                        style:'width:100%;'
                     }
                 }   
             ]

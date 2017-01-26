@@ -41,7 +41,7 @@
             "arrow": "cap",
             "sourceNode": nodesDict.toArray()[0],
             "pathStyle": {
-                "fill": "#f00"
+                "fill": "#76FF03"
             }
         });
         pathLayer.addPath(pathInst);
