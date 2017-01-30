@@ -21,13 +21,15 @@ sudo ovs-vsctl --may-exist add-port br94 eth2
 #sudo ifconfig eth1 0.0.0.0
 #ip=$(ip addr show dev eth0 | grep "inet " | awk '{ print $2 }')
 #sudo ifconfig br94 192.168.20.204 255.255.255.0
-#sudo ifconfig eth1 down
-#sudo ifconfig eth1 up
-#sudo ifconfig br94 down
-#sudo ifconfig br94 up
+sudo ifconfig eth1 down
+sudo ifconfig eth1 up
+sudo ifconfig eth2 down
+sudo ifconfig eth2 up
+sudo ifconfig br94 down
+sudo ifconfig br94 up
 
 #set controller to ovs
-sudo ovs-vsctl set-controller br94 tcp:192.168.10.84:6633
+sudo ovs-vsctl set-controller br94 tcp:192.168.10.70:6633
 
 #add rules to switch
 #sudo ovs-ofctl add-flow "br94" in_port=3,actions:output=2
