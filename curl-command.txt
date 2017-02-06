@@ -8,7 +8,7 @@ body:
 <flow xmlns="urn:opendaylight:flow:inventory">
 	<priority>10</priority>
 	<id>2</id>
-	<table_id>1</table_id>
+	<table_id>0</table_id>
 	<installHw>true</installHw>
 	<flow-name>2to1</flow-name>
 	<match>
@@ -29,8 +29,12 @@ body:
 		</instruction>
 	</instructions>
 </flow>
+	
 
 view flow url: http://<controller-ip>:8181/restconf/operational/opendaylight-inventory:nodes/node/<node-id>/table/<table-id>
+method: GET
+
+view all flow url: http://localhost:8181/restconf/config/opendaylight-inventory:nodes/
 method: GET
 
 delete flow url: http://<controller-ip>:8181/restconf/config/opendaylight-inventory:nodes/node/<node-id>/table/<table-id>/flow/<flow-id>
@@ -44,21 +48,11 @@ GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nod
 • Individual Flow Statistics from specific table
 GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nodes/node/{node-id}/table/{table-id}/flow/{flow-id}
 
-• Group Features & Meter Features Statistics
-GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nodes/node/{node-id}
-
-• Group Description & Group Statistics
-GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nodes/node/{node-id}/group/{group-id}
-
-• Meter Configuration & Meter Statistics
-GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nodes/node/{node-id}/meter/{meter-id}
-
 • Node Connector Statistics
  GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nodes/node/{node-id}/node-connector/{node-connector-id}
  
 • Queue Statistics
 GET  http://<controller-ip>:8080/restconf/operational/opendaylight-inventory:nodes/node/{node-id}/node-connector/{node-connector-id}/queue/{queue-id} 
-
 
 view topology:
 GET http://localhost:8181/restconf/operational/network-topology:network-topology/

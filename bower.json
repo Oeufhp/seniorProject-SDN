@@ -1,0 +1,27 @@
+{
+  "name": "eSDN",
+  "description": "SDN app with UI. This is Pitarn's senior project",
+  "main": "no",
+  "authors": [
+    "Pitarn Harnpanichpun"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "network",
+    "SDN"
+  ],
+  "homepage": "https://github.com/Oeufhp/seniorProject-SDN",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
+    "material-design-lite": "^1.3.0"
+  }
+}

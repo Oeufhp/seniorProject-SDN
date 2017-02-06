@@ -27,23 +27,23 @@
             formcomponent.attach(app);
         }
     });
-    topology.on("topologyGenerated", function(){
-        // path layer - need to draw paths
-        var pathLayer = topology.getLayer("paths");
-        // node dictionary to get nodes by name (by default only 'id' is available)
-        var nodesDict = topology.getLayer("nodes").nodeDictionary();
+    // topology.on("topologyGenerated", function(){
+    //     // path layer - need to draw paths
+    //     var pathLayer = topology.getLayer("paths");
+    //     // node dictionary to get nodes by name (by default only 'id' is available)
+    //     var nodesDict = topology.getLayer("nodes").nodeDictionary();
 
-        var linkList = getLinkList(topology, nodesDict, pathHops);
+    //     var linkList = getLinkList(topology, nodesDict, pathHops);
 
-        var pathInst = new nx.graphic.Topology.Path({
-            "pathWidth": 3,
-            "links": linkList,
-            "arrow": "cap",
-            "sourceNode": nodesDict.toArray()[0],
-            "pathStyle": {
-                "fill": "#76FF03"
-            }
-        });
-        pathLayer.addPath(pathInst);
-    });
+    //     var pathInst = new nx.graphic.Topology.Path({
+    //         "pathWidth": 3,
+    //         "links": linkList,
+    //         "arrow": "cap",
+    //         "sourceNode": nodesDict.toArray()[0],
+    //         "pathStyle": {
+    //             "fill": "#76FF03"
+    //         }
+    //     });
+    //     pathLayer.addPath(pathInst);
+    // });
 })(nx);
