@@ -3,7 +3,7 @@
 	var topologyContainer = new TopologyContainer();
 	// topology instance was made in TopologyContainer, but we can invoke its members through 'topology' variable for convenience
 	var topology = topologyContainer.topology();
-    var formcomponent=new formComponent();
+    // var formcomponent=new formComponent();
     var topologyData={};
 	//assign the app to the <div>
 	app.container(document.getElementById('next-app'));
