@@ -5,23 +5,162 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
         <title>eSDN | flow management</title>
         <link rel="stylesheet" href="./css/style.css">
-        <link href="./css/next.min.css" rel="stylesheet">
+        <link href="../css/next.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" rel="stylesheet">
-        <link href="../bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
     </head>
     <body>
         <nav class="nav has-shadow" style="width:100%;">
-        <div class="nav-left">
-            <span class="nav-item" style="font-family: 'Patua One', sans-serif; font-size:30px; background-color: #00d1b2; color:#fff;">eSDN</span>
-            <a class="nav-item is-tab" href="../">topology&nbsp <i class="material-icons">timeline</i></a>
-            <a class="nav-item is-tab is-active">Flow management&nbsp <i class="fa fa-exchange" aria-hidden="true"></i></a>
+            <div class="nav-left">
+                <span class="nav-item" style="font-family: 'Patua One', sans-serif; font-size:30px; background-color: #00d1b2; color:#fff;">eSDN</span>
+                <a class="nav-item is-tab" href="../index.html">topology&nbsp <i class="material-icons">timeline</i></a>
+                <a class="nav-item is-tab is-active">Flow management&nbsp <i class="fa fa-exchange" aria-hidden="true"></i></a>
+            </div>
+        </nav>
+        <section class="section" style="">
+        <div class="container" style="width:100%;">
+            <div class="heading">
+                <h1 class="title" style="margin:0;">Add flow</h1>
+            </div>    
+            <div class="columns">
+               <div class="column is-2" style="">
+                   <label class="label" for="input-switch-id">switches</label>
+                    <p class="control">
+                       <input class="input" type="text" id="input-switch-id" placeholder="switch id">
+                    </p>
+                </div>
+                <div class="column is-2" style="padding-left:-15px;">
+                     <label class="label" for="input-table-id">table id</label>
+                     <p class="control">
+                         <input class="input" type="text" id="input-table-id" placeholder="table id">
+                     </p>
+               </div>
+               <div class="column is-2">
+                    <label class="label" for="input-flow-id">flow id</label>
+                    <p class="control">
+                        <input class="input" type="text" id="input-flow-id" placeholder="flow id">
+                    </p>
+               </div>
+               <div class="column is-2">
+                    <label class="label" for="input-flow-name">flow name</label>
+                    <p class="control">
+                       <input class="input" type="text" id="input-flow-name" placeholder="flow name">
+                    </p>
+               </div>
+               <div class="column is-2">
+                   <label class="label" for="input-in-port">in port</label>
+                   <p class="control">
+                       <input class="input" type="text" id="input-in-port" placeholder="in port">
+                   </p>
+               </div>
+               <div class="column is-2">
+                   <label class="label" for="input-out-port">out port</label>
+                   <p class="control">
+                      <input class="input" type="text" id="input-out-port" placeholder="out port">
+                   </p>
+               </div>
+               <div class="column is-2" style="padding-top:38px;">
+                   <button class="button is-primary" id="addFlow-btn">Primary</button>
+               </div>
+             </div>
         </div>
-        <div>
-            
-        </div>
-    </nav>
+       </section>
+       <hr style="width:95%; margin-left:auto; margin-right:auto;"> 
+       <section class="section" style="">
+           <div class="container" style="width:100%;">
+                <div class="heading" style="margin:0;">
+                    <h1 class="title">VIEW FLOW</h1>
+                </div>
+                <div class="columns" style="margin-top:10px;">
+                    <div class="column is-2">
+                        <label class="label" for="switch-select">switches</label>
+                        <p class="control">
+                            <span class="select">  
+                                <select id="switch-select">
+                                    <option value="" selected="selected">please select switch</option>
+                                </select>
+                            </span>
+                        </p>
+                    </div>
+                </div>    
+            </div>
+            <div class="container">
+                <table class="table is-striped" id="flow-table">
+                    <thead>
+                       <tr>
+                           <th><abbr title="flow-id">Flow ID</abbr></th>
+                           <th><abbr title="table-id">Table ID</abbr></th>
+                           <th><abbr title="match">Match</abbr></th>
+                           <th><abbr title="actions">Actions</abbr></th>
+                       </tr> 
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+       </section>
+
+        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+        <script>
+            $('#addFlow-btn').click(function(e){
+                console.log('add flow!!');
+                var switchID=$('#input-switch-id').val().trim();
+                var tableID=$('#input-table-id').val().trim();
+                var flowID=$('#input-flow-id').val().trim();
+                var flowName=$('#input-flow-name').val().trim();
+                var inPort=$('#input-in-port').val().trim();
+                var outPort=$('#input-out-port').val().trim();
+                console.log('switchID: '+switchID+' '+'tableID: '+tableID+' '+'flowID: '+flowID+' flowName: '+flowName+' inPort: '+inPort+' outPort: '+outPort);
+                var putURL='http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/'+switchID+'/table/'+tableID+'/flow/'+flowID;
+                 var flowBody="<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<flow xmlns=\"urn:opendaylight:flow:inventory\">\n  <priority>100</priority>\n  <id>"+flowID+"</id>\n  <table_id>"+tableID+"</table_id>\n  <installHw>true</installHw>\n  <flow-name>"+flowName+"</flow-name>\n  <match>\n    <in-port>"+inPort+"</in-port>\n  </match>\n  <instructions>\n    <instruction>\n      <order>0</order>\n      <apply-actions>\n        <action>\n          <order>0</order>\n          <output-action>\n            <output-node-connector>"+outPort+"</output-node-connector>\n            <max-length>60</max-length>\n          </output-action>\n        </action>\n      </apply-actions>\n    </instruction>\n  </instructions>\n</flow>";
+                  console.log(flowBody);             
+                  $.ajax({
+                    url:putURL,
+                    method:"PUT",
+                    crossDomain: true,
+                    dataType:'xml',
+                    data:flowBody,
+                    headers: {
+                        "authorization": "Basic YWRtaW46YWRtaW4=",
+                        "content-type": "application/xml",
+                        "accept": "application/json",
+                    },
+                    success:function(data){
+                        console.log('add flow complete');
+                    },
+                    error:function(data){
+                        console.error(data.status);
+                    }
+                });
+            });
+        </script>
+        <script src="../js/data.js"></script>
+        <script>
+            var topologyData={};
+            var url_topo='http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';
+            $.ajax({
+                url:url_topo,
+                method:'GET',
+                crossDomain:true,
+                dataType:'json',
+                headers:{
+                    "authorization": "Basic YWRtaW46YWRtaW4=",
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                },
+                success:function(data){
+                    topologyData=jsonToCTM(data);
+                    // console.log(topologyData);
+                    for(i=0;i<topologyData.nodes.length;i++){
+                        var opt='<option value="'+topologyData.nodes[i].name+'">'+topologyData.nodes[i].name+'</option>';
+                        $('#switch-select').append(opt);
+                    }
+                }
+            });
+        </script>
+        <script src="./js/getFlow.js"></script>  
     </body>
 </html>

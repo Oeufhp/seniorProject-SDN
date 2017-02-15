@@ -1,5 +1,4 @@
 var topologyData={};
-
 var jsonToCTM=function(data){
     var topology=data.topology[0];
     var topologyNext={nodes:[] , links:[]};

@@ -24,7 +24,7 @@
             console.log(topologyData);
             topology.data(topologyData);
             topology.attach(app);
-            formcomponent.attach(app);
+            // formcomponent.attach(app);
         }
     });
     // topology.on("topologyGenerated", function(){
