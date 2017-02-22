@@ -61,7 +61,7 @@ console.log(topologyData);
                     // link config
                     linkConfig: {
                         // multiple link type is curve, could change to 'parallel' to use parallel link
-                        linkType: 'curve'
+                        linkType: 'parallel'
                     },
                     // show node's icon, could change to false to show dot
                     adaptive: true,

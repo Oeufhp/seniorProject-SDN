@@ -24,7 +24,13 @@
             console.log(topologyData);
             topology.data(topologyData);
             topology.attach(app);
-            // formcomponent.attach(app);
+            toastr['success']('query topology data complete');
+        },
+        error: function(xhr){
+            console.log(xhr.status);
+            if(xhr.status===0){
+                toastr['warning']('Please run karaf shell of ODL');
+            }   
         }
     });
     // topology.on("topologyGenerated", function(){

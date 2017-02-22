@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+        <title>eSDN | devices information</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link href="../css/next.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" rel="stylesheet">
+        <link href="../../bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="nav has-shadow" style="width:100%;">
+            <div class="nav-left">
+                <span class="nav-item" style="font-family: 'Patua One', sans-serif; font-size:27px; background-color: #00d1b2; color:#fff;">eSDN</span>
+                <a class="nav-item is-tab" href="../index.html">topology&nbsp <i class="material-icons">timeline</i></a>
+                <a class="nav-item is-tab" href="../flow-page/index.html">Flow management&nbsp <i class="fa fa-exchange" aria-hidden="true"></i></a>
+                <a class="nav-item is-tab is-active">Devices information&nbsp <i class="fa fa-hdd-o" aria-hidden="true"></i></a>
+            </div>
+        </nav>
+        <section class="section">
+            <div class="container" style="width:100%;">
+                <div class="heading">
+                    <h1 class="title">Devices information</h1>
+                </div>
+                <p class="control" style="margin-top:50px;">
+                    <span class="select">  
+                        <select id="switch-select1">
+                            <option value="" selected="selected">please select switch</option>
+                        </select>
+                    </span>
+                </p>
+            </div>
+            <table class="table is-striped" id="device-table" style="margin-top:1em;">
+                <thead>
+                    <tr>
+                        <th><abbr title="device-id">Device ID</abbr></th>
+                        <th><abbr title="device-type">Device type</abbr></th>
+                        <th><abbr title="port-info">Port info</abbr></th>
+                        <th><abbr title="other-info">Other info</abbr></th>
+                    </tr>
+                </thead>
+                <tbody id="table-device">
+                </tbody>   
+            </table>
+        </section>
+        <!------------------------------------------------------script zone------------------------------------------------------------>
+        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="../js/data.js"></script>
+        <script>
+            var topologyData={};
+            var url_topo='http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';
+            $.ajax({
+                url:url_topo,
+                method:'GET',
+                crossDomain:true,
+                dataType:'json',
+                headers:{
+                    "authorization": "Basic YWRtaW46YWRtaW4=",
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                },
+                success:function(data){
+                    topologyData=jsonToCTM(data);
+                    // console.log(topologyData);
+                    for(i=0;i<topologyData.nodes.length;i++){
+                        if(topologyData.nodes[i].name.substring(0,4)==='open'){
+                            var opt='<option value="'+topologyData.nodes[i].name+'">'+topologyData.nodes[i].name+'</option>';
+                        }    
+                        $('#switch-select1').append(opt);
+                    }
+                }
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+                var deviceData={};
+                var val;
+                var txt='';
+                $('#switch-select1').change(function(){
+                    val=$(this).find("option:selected").attr("value");
+                    // console.log(val);
+                    var data_url="http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/"+val;
+                    $.ajax({
+                        url: data_url,
+                        method:'GET',
+                        crossDomain: true,
+                        dataType:'json',
+                        headers: {
+                            "authorization": "Basic YWRtaW46YWRtaW4=",
+                            "content-type": "application/json",
+                            "accept": "application/json",
+                        },
+                        success:function(data){
+                            deviceData=data['node'][0];
+                            console.log(deviceData);
+                            var devID,devName,devType, portInf='',otherInf,txt,conHost;
+                            devID=deviceData['id'];
+                            devType='<img src="./img/switch.svg" class="image" style="width:20%; text-align:center;">'+
+                                    '<figcaption>switch</figcaption>';
+                            var len=deviceData['node-connector'].length;
+                            for(i=0;i<len;i++){
+                                // console.log(deviceData['node-connector'][i]);
+                                if(deviceData['node-connector'][i]['id'].substring(deviceData['node-connector'][i]['id'].length,deviceData['node-connector'][i]['id'].length-5)!=='LOCAL'){
+                                portInf+='<strong>port ID:</strong> '+deviceData['node-connector'][i]['id']+'<br>'+
+                                        '<strong>port number:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:port-number']+'<br>'+
+                                        '<strong>port name:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:name']+'<br>'+
+                                        '<strong>current feature of LAN cable:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:current-feature']+'<br>'+
+                                        '<strong>MAC address:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:hardware-address']+'<br>';
+                                }
+                                else{
+                                    portInf+='<strong>port ID:</strong> '+deviceData['node-connector'][i]['id']+'<br>'+
+                                        '<strong>port number:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:port-number']+'<br>'+
+                                        '<strong>bridge name:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:name']+'<br>'+
+                                        '<strong>current feature of LAN cable:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:current-feature']+'<br>'+
+                                        '<strong>MAC address:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:hardware-address']+'<br>';
+                                }          
+                                 if(!deviceData['node-connector'][i]['flow-node-inventory:state']['link-down']){
+                                    portInf+='<strong>link state:</strong> '+'link up<hr>';
+                                 }
+                                 else{
+                                     portInf+='<strong>link state:</strong> '+'link down<hr>';
+                                 }            
+                            }
+                            otherInf='hardware type: '+deviceData['flow-node-inventory:hardware']+'<br>'+
+                                      'IP address: '+deviceData['flow-node-inventory:ip-address']+'<br>';
+                            txt+='<tr><th>'+devID+'</th><td>'+devType+'</td><td>'+portInf+'</td><td>'+otherInf+'</td></tr>';
+                            $('#table-device').append(txt);     
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

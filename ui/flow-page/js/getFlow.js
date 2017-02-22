@@ -2,6 +2,7 @@ $(document).ready(function(){
     var flowData={};
     var val;
     $('#switch-select').change(function(){
+        $('#table-body tr').remove();
         val=$(this).find("option:selected").attr("value");
         console.log(val);
         var flow_url='http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/'+val+'/table/0/';
