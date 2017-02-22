@@ -22,8 +22,8 @@
                 <a class="nav-item is-tab" href="../device-page/index.html">Devices information&nbsp <i class="fa fa-hdd-o" aria-hidden="true"></i></a>
             </div>
         </nav>
-        <section class="section">
-        <div class="container" style="width:100%;">
+        <section class="section" style="width:95%; margin-right:10px;">
+        <!--<div class="container" style="width:100%;">-->
             <div class="heading">
                 <h1 class="title" style="margin:0;">Add flow</h1>
             </div>
@@ -47,6 +47,13 @@
                     <p class="control">
                        <input class="input" type="text" id="input-switch-id1" placeholder="switch id" required>
                     </p>
+                    <!--<p class="control">
+                        <span class="select">  
+                            <select id="ovs-id">
+                                <option value="" selected="selected">switch id</option>
+                             </select>
+                        </span>
+                   </p>-->
                 </div>
                 <div class="column is-2" style="padding-left:-15px;">
                      <label class="label" for="input-table-id1">table id</label>
@@ -71,14 +78,30 @@
                    <p class="control">
                        <input class="input" type="text" id="input-in-port" placeholder="in port" required>
                    </p>
+                   <!--<p class="control is-2">
+                       <span class="select">  
+                          <select id="inport-select">
+                             <option value="" selected="selected">input port</option>
+                           </select>
+                        </span>
+                   </p>-->
                </div>
                <div class="column is-2">
                    <label class="label" for="input-out-port">out port</label>
                    <p class="control">
                       <input class="input" type="text" id="input-out-port" placeholder="out port" required>
                    </p>
+                   <!--<p class="control is-2">
+                       <span class="select">  
+                         <select id="outport-select">
+                             <option value="" selected="selected">output port</option>
+                          </select>
+                       </span>
+                   </p>-->
                </div>
-               <div class="column is-2" style="padding-top:38px;">
+            </div>
+            <div class="columns" id="inout2" style="display:none;">
+                <div class="column is-2" style="padding-top:38px;">
                    <button class="button is-primary" id="addFlow-btn1">submit</button>
                </div>
             </div>
@@ -119,15 +142,17 @@
                       <input class="input" type="text" id="input-ip-dest" placeholder="IPv4 dest">
                    </p>
                </div>
-               <div class="column is-2" style="padding-top:38px;">
+             </div>
+             <div class="columns" style="display:none;" id="ipv42">
+                 <div class="column is-2" style="padding-top:38px;">
                    <button class="button is-primary" id="addFlow-btn2">submit</button>
                </div>
-             </div
-        </div>
+             </div>
+        <!--</div>-->
        </section>
        <hr style="width:95%; margin-left:auto; margin-right:auto;"> 
        <section class="section">
-           <div class="container" style="width:100%;">
+           <!--<div class="container" style="width:100%;">-->
                 <div class="heading" style="margin:0;">
                     <h1 class="title">VIEW FLOW</h1>
                 </div>
@@ -150,13 +175,14 @@
                         </p>
                     </div>
                 </div>    
-            </div>
-            <div class="container">
+            <!--</div>-->
+            <!--<div class="container">-->
                 <table class="table is-striped" id="flow-table">
                     <thead>
                        <tr>
                            <th><abbr title="flow-id">Flow ID</abbr></th>
                            <th><abbr title="table-id">Table ID</abbr></th>
+                           <th><abbr title="flow-name">Flow name</abbr></th>
                            <th><abbr title="match">Match</abbr></th>
                            <th><abbr title="actions">Actions</abbr></th>
                        </tr> 
@@ -164,7 +190,7 @@
                     <tbody id="table-body">
                     </tbody>
                 </table>
-            </div>
+            <!--</div>-->
        </section>
        <!------------------------------------------------------script zone------------------------------------------------------------>
         <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
@@ -174,12 +200,43 @@
                 console.log($(this).val());
                 if(Number($(this).val())===1){
                     $('#ipv4').hide();
+                    $('#ipv42').hide();
                     $('#inout').show();
+                    $('#inout2').show();
                 }
                 else if(Number($(this).val())===2){
                     $('#inout').hide();
+                    $('#inout2').hide();
                     $('#ipv4').show();
+                    $('#ipv42').show();
                 } 
+            });
+        </script>
+        <script src="../js/data.js"></script>
+        <script>
+            var topologyData={};
+            var url_topo='http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';
+            $.ajax({
+                url:url_topo,
+                method:'GET',
+                crossDomain:true,
+                dataType:'json',
+                headers:{
+                    "authorization": "Basic YWRtaW46YWRtaW4=",
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                },
+                success:function(data){
+                    topologyData=jsonToCTM(data);
+                    // console.log(topologyData);
+                    for(i=0;i<topologyData.nodes.length;i++){
+                        if(topologyData.nodes[i].name.substring(0,4)==='open'){
+                            var opt='<option value="'+topologyData.nodes[i].name+'">'+topologyData.nodes[i].name+'</option>';
+                        }    
+                        $('#switch-select').append(opt);
+                        // $('#ovs-id').append(opt);
+                    }
+                }
             });
         </script>
         <script>
@@ -272,32 +329,32 @@
                 });
             });
         </script>
-        <script src="../js/data.js"></script>
-        <script>
-            var topologyData={};
-            var url_topo='http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';
-            $.ajax({
-                url:url_topo,
-                method:'GET',
-                crossDomain:true,
-                dataType:'json',
-                headers:{
-                    "authorization": "Basic YWRtaW46YWRtaW4=",
-                    "content-type": "application/json",
-                    "accept": "application/json",
-                },
-                success:function(data){
-                    topologyData=jsonToCTM(data);
-                    // console.log(topologyData);
-                    for(i=0;i<topologyData.nodes.length;i++){
-                        if(topologyData.nodes[i].name.substring(0,4)==='open'){
-                            var opt='<option value="'+topologyData.nodes[i].name+'">'+topologyData.nodes[i].name+'</option>';
-                        }    
-                        $('#switch-select').append(opt);
-                    }
-                }
+        <!--<script>
+            $(document).ready(function(){
+                var deviceData={};
+                var val,txt='';
+                $('#ovs-id').change(function(){
+                    val=$(this).find("option:selected").attr("value");
+                    var data_url="http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/"+val;
+                    $.ajax({
+                        url: data_url,
+                        method:'GET',
+                        crossDomain: true,
+                        dataType:'json',
+                        headers: {
+                            "authorization": "Basic YWRtaW46YWRtaW4=",
+                            "content-type": "application/json",
+                            "accept": "application/json",
+                        },
+                        success:function(data){
+                            deviceData=data['node'][0];
+                            console.log(deviceData);
+                            
+                        }
+                    });
+                });
             });
-        </script>
+        </script>-->
         <script src="./js/getFlow.js"></script>
         <script>
             $('#delete-btn').click(function(){

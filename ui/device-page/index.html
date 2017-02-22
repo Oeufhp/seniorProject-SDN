@@ -83,6 +83,7 @@
                 var val;
                 var txt='';
                 $('#switch-select1').change(function(){
+                    $('#table-device tr').remove();
                     val=$(this).find("option:selected").attr("value");
                     // console.log(val);
                     var data_url="http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/"+val;
