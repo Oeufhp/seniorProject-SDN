@@ -22,37 +22,31 @@ $(document).ready(function(){
                 var flowNodes='flow-node-inventory:table';
                 var flows=flowData[flowNodes][0].flow;
                 console.log(flows);
-                var tdflowID,tdtableID,tdmatch='',output;
+                var tdflowID,tdtableID,tdmatch='',output,priority;
                 var len=flows.length;
                 var txt='';
                 if(len>0){
                     for(i=0;i<len;i++){
                         tdflowID=flows[i]['id'];
                         tdtableID=flows[i]['table_id'];
+                        priority=flows[i]['priority'];
                         if(flows[i]['match']['ethernet-match']!==undefined){
-                            // console.log('ethernet type: '+flows[i]['match']['ethernet-match']['ethernet-type']['type']);
-                            tdmatch+='ethernet type: '+flows[i]['match']['ethernet-match']['ethernet-type']['type'];
+                            tdmatch+='ethernet type: '+flows[i]['match']['ethernet-match']['ethernet-type']['type']+', ';
                         }
                         else if(flows[i]['match']['in-port']!==undefined){
                             tdmatch+='in port: '+flows[i]['match']['in-port'];
-                            // console.log(tdmatch);
                         }
                         if(flows[i]['instructions']!==undefined){
-                            // console.log(flows[i]['instructions']['instruction'][0]['apply-actions']['action']);
                             var len1=flows[i]['instructions']['instruction'][0]['apply-actions']['action'].length;
-                            // console.log(len1);
                             if(len1>0){
                                 for(j=0;j<len1;j++){
-                                    // console.log(flows[i]['instructions']['instruction'][0]['apply-actions']['action'][j]);
                                     output='order: '+flows[i]['instructions']['instruction'][0]['apply-actions']['action'][j]['order']+', <br>'+
-                                            'ACTIONS: '+
                                             'out port: '+flows[i]['instructions']['instruction'][0]['apply-actions']['action'][j]['output-action']['output-node-connector'];
-                                    // console.log(output);
                                 }
                             }
                         }
                         // console.log(flows[i]['match']);
-                        txt+="<tr><th>"+tdflowID+"</th><td>"+tdtableID+"</td><td>"+'NONE'+"</td><td>"+tdmatch+"</td><td>"+output+"</td></tr>";
+                        txt+="<tr><th>"+tdflowID+"</th><td>"+tdtableID+"</td><td>"+priority+"</td><td>"+'NONE'+"</td><td>"+tdmatch+"</td><td>"+output+"</td></tr>";
                         $('#table-body').append(txt);
                     }
                 }
@@ -72,13 +66,14 @@ $(document).ready(function(){
             success:function(data){
                 flowData2=data['flow-node-inventory:table'][0]['flow'];
                 console.log(flowData2);
-                var tdflowID2,tdtableID2,flowName2,tdmatch2,output2;
+                var tdflowID2,tdtableID2,flowName2,tdmatch2,output2,priority2;
                 var txt='';
                 var len2=flowData2.length;
                 if(len2>0){
                     for(j=0;j<len2;j++){
                         tdflowID2=flowData2[j]['id'];
                         tdtableID2=flowData2[j]['table_id'];
+                        priority2=flowData2[j]['priority'];
                         flowName2=flowData2[j]['flow-name'];
                         if(flowData2[j]['match']['in-port']!==undefined){
                             tdmatch2='in port: '+flowData2[j]['match']['in-port'];
@@ -87,7 +82,7 @@ $(document).ready(function(){
                                 'OUTPUT ACTIONS: max length: '+flowData2[j]['instructions']['instruction'][0]['apply-actions']['action'][0]['output-action']['max-length']+', '+
                                 ' out port: '+flowData2[j]['instructions']['instruction'][0]['apply-actions']['action'][0]['output-action']['output-node-connector'];
 
-                       txt+="<tr><th>"+tdflowID2+"</th><td>"+tdtableID2+"</td><td>"+flowName2+"</td><td>"+tdmatch2+"</td><td>"+output2+"</td></tr>";
+                       txt+="<tr><th>"+tdflowID2+"</th><td>"+tdtableID2+"</td><td>"+priority2+"</td><td>"+flowName2+"</td><td>"+tdmatch2+"</td><td>"+output2+"</td></tr>";
                         $('#table-body').append(txt);         
                     }
 
