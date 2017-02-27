@@ -24,7 +24,9 @@
             console.log(topologyData);
             topology.data(topologyData);
             topology.attach(app);
-            toastr['success']('query topology data complete');
+            if(topologyData.nodes.length!==0){
+                toastr['success']('query topology data complete');
+            }    
         },
         error: function(xhr){
             console.log(xhr.status);

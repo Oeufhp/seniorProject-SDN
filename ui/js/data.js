@@ -3,18 +3,23 @@ var jsonToCTM=function(data){
     var topology=data.topology[0];
     var topologyNext={nodes:[] , links:[]};
     //push nodes to array
-    for(var i=0;i<topology.node.length;i++){
-        var node={};
-        if (topology.node[i].hasOwnProperty('node-id')) {
-			node.name = topology.node[i]['node-id'];
-            node.id=i;
-            if(topology.node[i]['node-id'].substring(0,4)=='host'){
-                node.icon='host';
-            }
-            else node.icon = "switch";
-		}
-        topologyNext.nodes.push(node);
+    if(topology.node===undefined){
+        toastr['warning']('You haven\'t create a topology yet');
     }
+    else if(topology.node!==undefined){
+        for(var i=0;i<topology.node.length;i++){
+            var node={};
+            if (topology.node[i].hasOwnProperty('node-id')) {
+                node.name = topology.node[i]['node-id'];
+                node.id=i;
+                if(topology.node[i]['node-id'].substring(0,4)=='host'){
+                    node.icon='host';
+                }
+                else node.icon = "switch";
+            }
+            topologyNext.nodes.push(node);
+        }
+    }    
     //push links to array
     if(topology.link!= undefined){
         for(var j=0;j<topology.link.length;j++){

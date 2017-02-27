@@ -47,13 +47,6 @@
                     <p class="control">
                        <input class="input" type="text" id="input-switch-id1" placeholder="switch id" required>
                     </p>
-                    <!--<p class="control">
-                        <span class="select">  
-                            <select id="ovs-id">
-                                <option value="" selected="selected">switch id</option>
-                             </select>
-                        </span>
-                   </p>-->
                 </div>
                 <div class="column is-2" style="padding-left:-15px;">
                      <label class="label" for="input-table-id1">table id</label>
@@ -78,26 +71,12 @@
                    <p class="control">
                        <input class="input" type="text" id="input-in-port" placeholder="in port" required>
                    </p>
-                   <!--<p class="control is-2">
-                       <span class="select">  
-                          <select id="inport-select">
-                             <option value="" selected="selected">input port</option>
-                           </select>
-                        </span>
-                   </p>-->
                </div>
                <div class="column is-2">
                    <label class="label" for="input-out-port">out port</label>
                    <p class="control">
                       <input class="input" type="text" id="input-out-port" placeholder="out port" required>
                    </p>
-                   <!--<p class="control is-2">
-                       <span class="select">  
-                         <select id="outport-select">
-                             <option value="" selected="selected">output port</option>
-                          </select>
-                       </span>
-                   </p>-->
                </div>
             </div>
             <div class="columns" id="inout2" style="display:none;">
@@ -358,32 +337,6 @@
                 });
             });
         </script>
-        <!--<script>
-            $(document).ready(function(){
-                var deviceData={};
-                var val,txt='';
-                $('#ovs-id').change(function(){
-                    val=$(this).find("option:selected").attr("value");
-                    var data_url="http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/"+val;
-                    $.ajax({
-                        url: data_url,
-                        method:'GET',
-                        crossDomain: true,
-                        dataType:'json',
-                        headers: {
-                            "authorization": "Basic YWRtaW46YWRtaW4=",
-                            "content-type": "application/json",
-                            "accept": "application/json",
-                        },
-                        success:function(data){
-                            deviceData=data['node'][0];
-                            console.log(deviceData);
-                            
-                        }
-                    });
-                });
-            });
-        </script>-->
         <script src="./js/getFlow.js"></script>
         <script>
             $('#delete-btn').click(function(){

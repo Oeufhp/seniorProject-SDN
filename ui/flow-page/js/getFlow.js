@@ -19,8 +19,7 @@ $(document).ready(function(){
             },
             success:function(data){
                 flowData=data;
-                var flowNodes='flow-node-inventory:table';
-                var flows=flowData[flowNodes][0].flow;
+                var flows=flowData['flow-node-inventory:table'][0]['flow'];
                 console.log(flows);
                 var tdflowID,tdtableID,tdmatch='',output,priority;
                 var len=flows.length;
@@ -30,12 +29,37 @@ $(document).ready(function(){
                         tdflowID=flows[i]['id'];
                         tdtableID=flows[i]['table_id'];
                         priority=flows[i]['priority'];
+                        console.log(flows[i]['match']['ethernet-match']);
+                        // if(flows[i]['match']['ethernet-match']===undefined){
+                        //     tdmatch+='NONE';
+                        // }
                         if(flows[i]['match']['ethernet-match']!==undefined){
-                            tdmatch+='ethernet type: '+flows[i]['match']['ethernet-match']['ethernet-type']['type']+', ';
+                            if(flows[i]['match']['ethernet-match']['ethernet-type']!==undefined){
+                                tdmatch+='ethernet type: '+flows[i]['match']['ethernet-match']['ethernet-type']['type']+', ';    
+                            }
+                            else if(flows[i]['match']['ethernet-match']['ethernet-source']!==undefined && flows[i]['match']['ethernet-match']['ethernet-destination']!==undefined){
+
+                            }
+                            else if(flows[i]['match']['ethernet-match']['ethernet-source']===undefined && flows[i]['match']['ethernet-match']['ethernet-destination']===undefined){
+                                tdmatch+='<b>ethernet source H/W address:</b> NONE, '+
+                                         '<b>ethernet destination H/W address:</b> NONE, ';
+                            }
                         }
-                        else if(flows[i]['match']['in-port']!==undefined){
+                        // else if(flows[i]['match']['ethernet-match']!==undefined){
+                        //     tdmatch+='ethernet type: '+flows[i]['match']['ethernet-match']['ethernet-type']['type']+', ';
+                        // }
+
+                        if(flows[i]['match']['in-port']!==undefined){
                             tdmatch+='in port: '+flows[i]['match']['in-port'];
                         }
+                        // if(flows[i]['match']['ethernet-match']['ethernet-source']!==undefined && flows[i]['match']['ethernet-match']['ethernet-destination']!==undefined){
+                        //     tdmatch+='<b>ethernet source H/W address:</b> '+ flows[i]['match']['ethernet-match']['ethernet-source']['address']+'<br>'+
+                        //              '<b>ethernet destination H/W address: </b>'+ flows[i]['match']['ethernet-match']['ethernet-destination']['address'];
+                        // }
+                        // else if(flows[i]['match']['ethernet-match']['ethernet-source']===undefined && flows[i]['match']['ethernet-match']['ethernet-destination']===undefined){
+                        //     tdmatch+='<b>ethernet source H/W address:</b> NONE, '+
+                        //              '<b>ethernet destination H/W address:</b> NONE, ';
+                        // }
                         if(flows[i]['instructions']!==undefined){
                             var len1=flows[i]['instructions']['instruction'][0]['apply-actions']['action'].length;
                             if(len1>0){
