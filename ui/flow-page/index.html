@@ -12,14 +12,15 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
     <body>
         <nav class="nav has-shadow" style="width:100%;">
             <div class="nav-left">
                 <span class="nav-item" style="font-family: 'Patua One', sans-serif; font-size:27px; background-color: #00d1b2; color:#fff;">eSDN</span>
-                <a class="nav-item is-tab" href="../index.html">topology&nbsp <i class="material-icons">timeline</i></a>
+                <a class="nav-item is-tab" href="../">topology&nbsp <i class="material-icons">timeline</i></a>
                 <a class="nav-item is-tab is-active">Flow management&nbsp <i class="fa fa-exchange" aria-hidden="true"></i></a>
-                <a class="nav-item is-tab" href="../device-page/index.html">Devices information&nbsp <i class="fa fa-hdd-o" aria-hidden="true"></i></a>
+                <a class="nav-item is-tab" href="../device-page/">Devices information&nbsp <i class="fa fa-hdd-o" aria-hidden="true"></i></a>
             </div>
         </nav>
         <section class="section" style="width:95%; margin-right:10px;">
@@ -45,7 +46,7 @@
                <div class="column is-2">
                    <label class="label" for="input-switch-id1">switches</label>
                     <p class="control">
-                       <input class="input" type="text" id="input-switch-id1" placeholder="switch id" required>
+                         <input class="input" type="text" id="input-switch-id1" placeholder="switch id" required>
                     </p>
                 </div>
                 <div class="column is-2" style="padding-left:-15px;">
@@ -201,6 +202,7 @@
        <!------------------------------------------------------script zone------------------------------------------------------------>
         <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
             $('#addFlow-opt').change(function(){
                 console.log($(this).val());
@@ -220,7 +222,8 @@
         </script>
         <script src="../js/data.js"></script>
         <script>
-            var topologyData={};
+            var topologyData={},deviceData={};
+            var switches=[];
             var url_topo='http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';
             $.ajax({
                 url:url_topo,
@@ -233,17 +236,50 @@
                     "accept": "application/json",
                 },
                 success:function(data){
+                    // console.log(data);
                     topologyData=jsonToCTM(data);
                     // console.log(topologyData);
                     for(i=0;i<topologyData.nodes.length;i++){
                         if(topologyData.nodes[i].name.substring(0,4)==='open'){
                             var opt='<option value="'+topologyData.nodes[i].name+'">'+topologyData.nodes[i].name+'</option>';
+                            switches.push(topologyData.nodes[i].name);
+                            var data_url="http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/"+topologyData.nodes[i].name;
+                            var ports=[];
+                            $.ajax({
+                                url: data_url,
+                                method:'GET',
+                                crossDomain: true,
+                                dataType:'json',
+                                headers: {
+                                    "authorization": "Basic YWRtaW46YWRtaW4=",
+                                    "content-type": "application/json",
+                                    "accept": "application/json",
+                                },
+                                success:function(data){
+                                    deviceData=data['node'][0];
+                                    // console.log(deviceData['node-connector']);
+                                    for(i=0;i<deviceData['node-connector'].length;i++){
+                                        // console.log(deviceData['node-connector'][i]);
+                                        var idlen=deviceData['node-connector'][i]['id'].length;
+                                        if(deviceData['node-connector'][i]['id'].substring(idlen,idlen-5)!=='LOCAL'){
+                                                ports.push(deviceData['node-connector'][i]['id']);
+                                        }   
+                                    }
+                                }
+                            });
                         }    
                         $('#switch-select').append(opt);
-                        // $('#ovs-id').append(opt);
+                        autocomplete(switches,$('.control #input-switch-id1'));
+                        autocomplete(ports,$('.control #input-in-port'))
+                        autocomplete(ports,$('.control #input-out-port'))
                     }
                 }
             });
+            function autocomplete(array,obj){
+                obj.autocomplete({
+                    source: array
+                });
+            }
         </script>
         <script>
             $('#addFlow-btn1').click(function(e){
@@ -259,6 +295,12 @@
                 console.log('switchID: '+switchID1+' '+'tableID: '+tableID1+' '+'flowID: '+flowID1+' flowName: '+flowName1+' inPort: '+inPort+' outPort: '+outPort+' installHw: '+installHw+' priority: '+priority);
                 if(switchID1==''&&tableID1==''&&flowID1==''&&flowName1==''&&inPort==''&&outPort==''&&installHw==null&&priority==''){
                     toastr['warning']('Please fill all of the forms');
+                }
+                else if(inPort===outPort){
+                    toastr['warning']('In port and out port should not be the same');
+                }
+                else if(switchID1!==inPort.substring(0,inPort.length-2)&&switchID1!==outPort.substring(0,outPort.length-2)){
+                    toastr['error']('The port(s) are not belong to switch');
                 }
                 else{
                     var putURL1='http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/'+switchID1+'/table/'+tableID1+'/flow/'+flowID1;
