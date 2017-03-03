@@ -51,31 +51,41 @@ $.ajax({
                             for(i=0;i<len;i++){
                                 // console.log(deviceData['node-connector'][i]);
                                 if(deviceData['node-connector'][i]['id'].substring(deviceData['node-connector'][i]['id'].length,deviceData['node-connector'][i]['id'].length-5)!=='LOCAL'){
-                                portInf+='<strong>port ID:</strong> '+deviceData['node-connector'][i]['id']+'<br>'+
-                                        '<strong>port number:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:port-number']+'<br>'+
-                                        '<strong>port name:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:name']+'<br>'+
+                                portInf+='<strong>port ID:</strong> '                    +deviceData['node-connector'][i]['id']+'<br>'+
+                                        '<strong>port number:</strong> '                 +deviceData['node-connector'][i]['flow-node-inventory:port-number']+'<br>'+
+                                        '<strong>port name:</strong> '                   +deviceData['node-connector'][i]['flow-node-inventory:name']+'<br>'+
                                         '<strong>current feature of LAN cable:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:current-feature']+'<br>'+
-                                        '<strong>MAC address:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:hardware-address']+'<br>'+
-                                        '<strong>packet received:</strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['received']+'<br>'+
-                                        '<strong>packet transmitted:</strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['transmitted']+'<br>'+
-                                        '<strong>number of collision:</strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['collision-count']+'<br>'+
-                                        '<strong>bytes received: </strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['received']+'<br>'+
-                                        '<strong>bytes received: </strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['transmitted']+'<br>'+
-                                        '<strong>duration(sec): </strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['duration']['second']+'<br>';
+                                        '<strong>MAC address:</strong> '                 +deviceData['node-connector'][i]['flow-node-inventory:hardware-address']+'<br>'+
+                                        '<strong>packet received:</strong> '             +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['received']+'<br>'+
+                                        '<strong>packet transmitted:</strong> '          +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['transmitted']+'<br>'+
+                                        '<strong>number of collision:</strong> '         +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['collision-count']+'<br>'+
+                                        '<strong>bytes received: </strong> '             +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['received']+'<br>'+
+                                        '<strong>bytes transmitted: </strong> '          +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['transmitted']+'<br>'+
+                                        '<strong>duration(sec): </strong> '              +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['duration']['second']+'<br>';
                                 }
                                 else{
-                                    portInf+='<strong>port ID:</strong> '+deviceData['node-connector'][i]['id']+'<br>'+
-                                        '<strong>port number:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:port-number']+'<br>'+
-                                        '<strong>bridge name:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:name']+'<br>'+
+                                    portInf+='<strong>port ID:</strong> '                +deviceData['node-connector'][i]['id']+'<br>'+
+                                        '<strong>port number:</strong> '                 +deviceData['node-connector'][i]['flow-node-inventory:port-number']+'<br>'+
+                                        '<strong>bridge name:</strong> '                 +deviceData['node-connector'][i]['flow-node-inventory:name']+'<br>'+
                                         '<strong>current feature of LAN cable:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:current-feature']+'<br>'+
-                                        '<strong>MAC address:</strong> '+deviceData['node-connector'][i]['flow-node-inventory:hardware-address']+'<br>'+
-                                        '<strong>packet received:</strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['received']+'<br>'+
-                                        '<strong>packet transmitted:</strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['transmitted']+'<br>'+
-                                        '<strong>number of collision:</strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['collision-count']+'<br>'+
-                                        '<strong>bytes received: </strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['received']+'<br>'+
-                                        '<strong>bytes received: </strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['transmitted']+'<br>'+
-                                        '<strong>duration(sec): </strong> '+deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['duration']['second']+'<br>';
-                                }          
+                                        '<strong>MAC address:</strong> '                 +deviceData['node-connector'][i]['flow-node-inventory:hardware-address']+'<br>'+
+                                        '<strong>packet received:</strong> '             +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['received']+'<br>'+
+                                        '<strong>packet transmitted:</strong> '          +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['packets']['transmitted']+'<br>'+
+                                        '<strong>number of collision:</strong> '         +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['collision-count']+'<br>'+
+                                        '<strong>bytes received: </strong> '             +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['received']+'<br>'+
+                                        '<strong>bytes transmitted: </strong> '          +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['bytes']['transmitted']+'<br>'+
+                                        '<strong>duration(sec): </strong> '              +deviceData['node-connector'][i]['opendaylight-port-statistics:flow-capable-node-connector-statistics']['duration']['second']+'<br>';
+                                }
+                                if(deviceData['node-connector'][i]['address-tracker:addresses']!==undefined){
+                                    for(j=0;j<deviceData['node-connector'][i]['address-tracker:addresses'].length;j++){
+                                        portInf+='<strong>host\'s MAC address: </strong> '   +deviceData['node-connector'][i]['address-tracker:addresses'][j]['mac']+'<br>'+
+                                              '<strong>host\'s IP address: </strong> '   +deviceData['node-connector'][i]['address-tracker:addresses'][j]['ip']+'<br>';
+                                    }          
+                                 }
+                                 else{
+                                     portInf+='<strong>host\'s MAC address: </strong> NONE <br>'+
+                                              '<strong>host\'s IP address: </strong> NONE <br>';
+                                 }          
                                  if(!deviceData['node-connector'][i]['flow-node-inventory:state']['link-down']){
                                     portInf+='<strong>link state:</strong> '+'link up<hr>';
                                  }
@@ -84,7 +94,7 @@ $.ajax({
                                  }            
                             }
                             otherInf='hardware type: '+deviceData['flow-node-inventory:hardware']+'<br>'+
-                                      'IP address of controller: '+deviceData['flow-node-inventory:ip-address']+'<br>';
+                                      'IP address of switch '+deviceData['flow-node-inventory:ip-address']+'<br>';      
                             txt+='<tr><th>'+devID+'</th><td>'+devType+'</td><td>'+portInf+'</td><td>'+otherInf+'</td></tr>';
                             $('#table-device').append(txt);     
                         }
