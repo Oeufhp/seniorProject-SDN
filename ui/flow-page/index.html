@@ -240,9 +240,7 @@
                     "accept": "application/json",
                 },
                 success:function(data){
-                    // console.log(data);
                     topologyData=jsonToCTM(data);
-                    // console.log(topologyData);
                     for(i=0;i<topologyData.nodes.length;i++){
                         if(topologyData.nodes[i].name.substring(0,4)==='open'){
                             var opt='<option value="'+topologyData.nodes[i].name+'">'+topologyData.nodes[i].name+'</option>';

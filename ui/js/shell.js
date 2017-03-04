@@ -7,6 +7,7 @@
     var topologyData={};
 	//assign the app to the <div>
 	app.container(document.getElementById('next-app'));
+    extentNodetooltip();
 	// implementing an async http request
     var URL_TOPOLOGY = 'http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';
     $.ajax({
@@ -55,3 +56,92 @@
     //     pathLayer.addPath(pathInst);
     // });
 })(nx);
+function extentNodetooltip(){
+    nx.define('extentNodetooltip',nx.ui.Component,{
+		'properties':{
+			'node':{
+				set:function(value){
+					var model=value.model();
+					var dataCollection = new nx.data.Collection(filterModel(model));
+
+          			this.view('list').set('items', dataCollection);
+          			this.title(value.label());
+					function filterModel(model) {
+                        var newModel = [{
+                            label: "Name",
+                            value: model._data['name']
+                          }, {
+                            label: "ID",
+                            value: model._data['id']
+                          }, {
+                            label: "type",
+                            value: model._data['icon']
+                          },
+                          {
+                            label: "ports",
+                            value: model._data['ports']
+                          },
+                          {
+                            label: "bridge name",
+                            value: model._data['brName']
+                          }
+                    ];
+            	        return newModel;
+                    }
+                }		
+			}, 
+            "title": "",
+            "nodePayload": {},
+            "topology": {}
+		},
+      view: {
+            content: [{
+              name: 'header',
+              props: {
+                'class': 'n-topology-tooltip-header'
+              },
+              content: [{
+                tag: 'span',
+                props: {
+                  'class': 'n-topology-tooltip-header-text'
+                },
+                name: 'title',
+                content: '{#title}'
+              }]
+            }, {
+              name: 'content',
+              props: {
+                'class': 'n-topology-tooltip-content n-list'
+              },
+              content: [{
+                name: 'list',
+                tag: 'ul',
+                props: {
+                  'class': 'n-list-wrap',
+                  template: {
+                    tag: 'li',
+                    props: {
+                      'class': 'n-list-item-i',
+                      role: 'listitem'
+                    },
+                    content: [{
+                      tag: 'label',
+                      content: '{label}: '
+                    }, {
+                      tag: 'span',
+                      content: '{value}'
+                    }]
+      
+                  }
+                }
+              }]
+            }]
+          },
+          "methods": {
+            // inherit standard properties & methods
+            "init": function(args) {
+              this.inherited(args);
+            }
+         }
+	});
+}

@@ -7,6 +7,7 @@ var jsonToCTM=function(data){
         toastr['warning']('You haven\'t create a topology yet');
     }
     else if(topology.node!==undefined){
+        var flowCnt=0,flowCnt1=0;
         for(var i=0;i<topology.node.length;i++){
             var node={};
             if (topology.node[i].hasOwnProperty('node-id')) {
@@ -17,6 +18,26 @@ var jsonToCTM=function(data){
                 }
                 else node.icon = "switch";
             }
+            $.ajax({
+                url:'http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/'+topology.node[i]['node-id'],
+                crossDomain: true,
+                dataType:'json',
+                async:false,
+                headers: {
+                    "authorization": "Basic YWRtaW46YWRtaW4=",
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                },
+                success:function(data){
+                    node.ports=data['node'][0]['node-connector'].length-1;
+                    var deviceData=data['node'][0]['node-connector'];
+                    $.each(deviceData,function(j,element){
+                        if(element['id'].substring(element['id'].length,element['id'].length-5)==='LOCAL'){
+                            node.brName=element['flow-node-inventory:name'];
+                        }    
+                    });
+                }
+            });
             topologyNext.nodes.push(node);
         }
     }    

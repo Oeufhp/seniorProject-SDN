@@ -22,6 +22,9 @@
 						'linkConfig': {
 							'linkType': 'parallel' // also: parallel
 						},
+						'tooltipManagerConfig': {
+    						'nodeTooltipContentClass': "extentNodetooltip"
+  						},
 						'identityKey': 'name', // helps to link source and target
 						'width': 1366,
 						'height':690,
