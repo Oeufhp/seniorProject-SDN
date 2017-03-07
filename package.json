@@ -4,7 +4,7 @@
   "description": "SDN app with UI. This is Pitarn's senior project",
   "main": "no",
   "scripts": {
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

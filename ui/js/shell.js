@@ -1,19 +1,21 @@
+var topology;
 (function (nx){
     var app = new nx.ui.Application();
 	var topologyContainer = new TopologyContainer();
 	// topology instance was made in TopologyContainer, but we can invoke its members through 'topology' variable for convenience
-	var topology = topologyContainer.topology();
+	topology = topologyContainer.topology();
     // var formcomponent=new formComponent();
-    var topologyData={};
+  var topologyData={};
 	//assign the app to the <div>
 	app.container(document.getElementById('next-app'));
-    extentNodetooltip();
+  extentNodetooltip();
 	// implementing an async http request
     var URL_TOPOLOGY = 'http://localhost:8181/restconf/operational/network-topology:network-topology/topology/flow:1/';
     $.ajax({
         url: URL_TOPOLOGY,
         method:"GET",
         crossDomain: true,
+        async:false,
         dataType:'json',
         headers: {
             "authorization": "Basic YWRtaW46YWRtaW4=",
@@ -63,27 +65,35 @@ function extentNodetooltip(){
 				set:function(value){
 					var model=value.model();
 					var dataCollection = new nx.data.Collection(filterModel(model));
-
           			this.view('list').set('items', dataCollection);
-          			this.title(value.label());
+                console.log(model._data['brName']);
+          			this.title(model._data['brName']);
 					function filterModel(model) {
                         var newModel = [{
-                            label: "Name",
+                            label: "Name:",
                             value: model._data['name']
                           }, {
-                            label: "ID",
+                            label: "ID:",
                             value: model._data['id']
                           }, {
-                            label: "type",
+                            label: "type:",
                             value: model._data['icon']
                           },
                           {
-                            label: "ports",
+                            label: "ports:",
                             value: model._data['ports']
                           },
                           {
-                            label: "bridge name",
+                            label: "bridge name:",
                             value: model._data['brName']
+                          },
+                          {
+                            label: "flows:",
+                            value: model._data['flows']
+                          },
+                          {
+                            label: "IP:",
+                            value: model._data['IP']
                           }
                     ];
             	        return newModel;
@@ -131,7 +141,6 @@ function extentNodetooltip(){
                       tag: 'span',
                       content: '{value}'
                     }]
-      
                   }
                 }
               }]

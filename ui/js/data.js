@@ -18,6 +18,7 @@ var jsonToCTM=function(data){
                 }
                 else node.icon = "switch";
             }
+            var count=0;
             $.ajax({
                 url:'http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/node/'+topology.node[i]['node-id'],
                 crossDomain: true,
@@ -36,8 +37,29 @@ var jsonToCTM=function(data){
                             node.brName=element['flow-node-inventory:name'];
                         }    
                     });
+                    $.each(data['node'][0]['flow-node-inventory:table'],function(k,flow){
+                        count+=flow['opendaylight-flow-table-statistics:flow-table-statistics']['active-flows'];
+                    });
+                    // node.flows=count;
+                    node.IP=data['node'][0]['flow-node-inventory:ip-address'];
                 }
             });
+            $.ajax({
+                url:'http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/'+topology.node[i]['node-id'],
+                dataType:'json',
+                async:false,
+                headers: {
+                    "authorization": "Basic YWRtaW46YWRtaW4=",
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                },
+                success:function(data){
+                    if(data['node']['0']['flow-node-inventory:table']!==undefined){
+                        count+=data['node']['0']['flow-node-inventory:table'].length;
+                    }    
+                }
+            });
+            node.flows=count;
             topologyNext.nodes.push(node);
         }
     }    

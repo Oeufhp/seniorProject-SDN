@@ -24,12 +24,12 @@
 						},
 						'tooltipManagerConfig': {
     						'nodeTooltipContentClass': "extentNodetooltip"
-  						},
+  						},  
 						'identityKey': 'name', // helps to link source and target
 						'width': 1366,
 						'height':690,
                         'theme':'green',
-						'autoLayout':'force',
+						'autoLayout':'quick',
 						'dataProcessor': 'force', // arrange nodes positions if not set
 						'enableSmartLabel': true, // moves the labels in order to avoid overlay of them
 						'enableGradualScaling': true, // may slow down, if true

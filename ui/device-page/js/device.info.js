@@ -34,7 +34,6 @@ $.ajax({
         url: data_url,
         method:'GET',
         crossDomain: true,
-        async:false,
         dataType:'json',
         headers: {
                "authorization": "Basic YWRtaW46YWRtaW4=",
@@ -43,7 +42,7 @@ $.ajax({
         },
         success:function(data){
             deviceData=data['node'][0]['node-connector'];
-            console.log(data['node'][0]);
+            console.log(data['node'][0]['flow-node-inventory:ip-address']);
             var devID,devName,devType, portInf='',otherInf,txt,conHost;
             devID=deviceData['id'];
             devType='<img src="./img/switch.svg" class="image" style="width:20%; text-align:center;">'+
