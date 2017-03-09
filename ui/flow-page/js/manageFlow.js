@@ -15,7 +15,7 @@ $('#addFlow-btn1').click(function(e){
             else if(inPort===outPort){
                 toastr['warning']('In port and out port should not be the same');
             }
-            else if(switchID1!==inPort.substring(0,inPort.length-2)&&switchID1!==outPort.substring(0,outPort.length-2)){
+            else if(switchID1!==inPort.substring(0,inPort.length-2)||switchID1!==outPort.substring(0,outPort.length-2)){
                 toastr['error']('The port(s) are not belong to switch');
             }
             else{
