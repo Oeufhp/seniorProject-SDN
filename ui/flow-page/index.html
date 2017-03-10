@@ -28,7 +28,7 @@
             <div class="heading">
                 <h1 class="title" style="margin:0;">Add flow</h1>
             </div>
-            <div class="columns" style="margin-top:10px;">
+            <!--<div class="columns" style="margin-top:10px;">
                     <div class="column is-2">
                         <label class="label" for="addFlow-opt">Adding flow options</label>
                         <p class="control">
@@ -41,8 +41,8 @@
                             </span>
                         </p>
                     </div>
-                </div>    
-            <div class="columns" id="inout" style="display:none;">
+                </div>    -->
+            <div class="columns" id="inout" style="">
                <div class="column is-2">
                    <label class="label" for="input-switch-id1">switches</label>
                     <p class="control">
@@ -80,13 +80,13 @@
                    </p>
                </div>
             </div>
-            <div class="columns" id="inout2" style="display:none;">
+            <div class="columns" id="inout2" style="">
                 <div class="column is-2">
                         <label class="label" for="insHw-opt">install on hardware</label>
                         <p class="control">
                             <span class="select">  
                                 <select id="insHw-opt" required>
-                                    <option value="" selected="selected">install on HW?</option>
+                                    <option value="" selected="selected">install on Hardware?</option>
                                     <option value="true">true</option>
                                     <option value="false">false</option>
                                 </select>
@@ -207,7 +207,7 @@
         <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
+        <!--<script>
             $('#addFlow-opt').change(function(){
                 console.log($(this).val());
                 if(Number($(this).val())===1){
@@ -223,7 +223,7 @@
                     $('#ipv42').show();
                 } 
             });
-        </script>
+        </script>-->
         <script src="../js/data.js"></script>
         <script>
             var topologyData={},deviceData={};
