@@ -36,8 +36,6 @@ sudo ovs-vsctl add-port s1 s1_s2
 sudo ovs-vsctl set Interface s1_s2 type=patch
 sudo ovs-vsctl set Interface s1_s2 options:peer=s2_s1
 
-# sudo ovs-vsctl set port s1_s2 trunks=10,20,30
-
 #add vlan and connect s2 and s1
 sudo ovs-vsctl add-port s2 s2_s1
 sudo ovs-vsctl set Interface s2_s1 type=patch
@@ -82,7 +80,7 @@ sudo ovs-vsctl set Interface s3_s4 options:peer=s4_s3
 #add vlan and connect s4 and s3
 sudo ovs-vsctl add-port s4 s4_s3
 sudo ovs-vsctl set Interface s4_s3 type=patch
-sudo ovs-vsctl set Interface s4_s3 options:peer=s4_s3
+sudo ovs-vsctl set Interface s4_s3 options:peer=s3_s4
 
 
 #set openflow version to all of bridge
