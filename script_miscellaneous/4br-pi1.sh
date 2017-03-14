@@ -82,6 +82,9 @@ sudo ovs-vsctl add-port s4 s4_s3
 sudo ovs-vsctl set Interface s4_s3 type=patch
 sudo ovs-vsctl set Interface s4_s3 options:peer=s3_s4
 
+#link two domains
+sudo ovs-vsctl add-port s3 eth1
+sudo ovs-vsctl add-port s1 eth2
 
 #set openflow version to all of bridge
 sudo ovs-vsctl set bridge s1 protocols=OpenFlow13

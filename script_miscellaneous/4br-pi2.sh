@@ -83,6 +83,10 @@ sudo ovs-vsctl set Interface s8_s7 type=patch
 sudo ovs-vsctl set Interface s8_s7 options:peer=s7_s8
 
 
+#link two domains
+sudo ovs-vsctl add-port s5 eth1
+sudo ovs-vsctl add-port s7 eth2
+
 #set openflow version to all of bridge
 sudo ovs-vsctl set bridge s5 protocols=OpenFlow13
 sudo ovs-vsctl set bridge s6 protocols=OpenFlow13
